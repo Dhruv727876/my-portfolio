@@ -1,0 +1,344 @@
+body {
+    overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.navbar{
+    display:flex;
+    justify-content: space-around;
+    background-color: black;
+    color:rgb(203, 193, 193);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    padding: 10px 0px;
+}
+#discount{
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: rgb(44, 44, 44);
+    color:white;
+    padding: 10px;
+    font-size: 16px;
+    margin: 0px;
+}
+.hero-image {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    line-height: 0;  
+    background-color: rgb(34, 32, 32);
+}
+
+#iphone17pro {
+    display: block;  
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+#buy{
+    display: inline;
+    position: relative;
+    bottom: 80px;
+    left: 740px; 
+    text-align: center;
+    background-color: rgba(47, 77, 178, 0.853);
+    color: white;
+    padding: 5px 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 18px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+#pricing{
+    display: block;
+    position: relative;
+    bottom: 50px;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+    text-align: center;
+}
+#highlights{
+    margin: 0px;
+    padding: 80px 0px 20px 30px;
+    font-weight: bolder;
+    color: white;
+    font-size: 50px;
+}
+.features{
+    height: auto;
+    margin: 0px;
+    background-color: rgb(34, 32, 32);
+}
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    height: 600px;         /* adjust for your design */
+    margin: 20px auto;     /* centers container */
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+/* Slides stacked on top of each other */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;             /* centers img + text vertically and horizontally */
+    flex-direction: column;    /* stack image and paragraph */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fade 18s infinite;
+    text-align: center;
+}
+
+/* Images inside slides */
+.slide img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+/* Paragraph inside slides */
+.slide p {
+    position: relative;
+    top: 10%;
+    width: 80%;
+    color: #000;
+    font-size: 20px;
+    color:white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: bolder;
+}
+
+/* Animation delays for 6 slides */
+.s1 { animation-delay: 0s; }
+.s2 { animation-delay: 3s; }
+.s3 { animation-delay: 6s; }
+.s4 { animation-delay: 9s; }
+.s5 { animation-delay: 12s; }
+.s6 { animation-delay: 15s; }
+
+/* Fade animation */
+@keyframes fade {
+    0%      {opacity: 0;}
+    5.555%  {opacity: 1;}
+    16.666% {opacity: 1;}
+    22.222% {opacity: 0;}
+    100%    {opacity: 0;}
+} 
+.specifications{
+    background-color: black;
+}
+h4{ 
+    color: rgb(255, 121, 27);
+    padding: 80px;
+    padding-bottom: 0px;
+    font-size: 21px;
+    text-align: center;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;ṣ;
+}
+#designhd{
+    color: #f5f5f7;
+    font-size: 40px;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: bolder;
+    
+}
+#designbd{
+    margin-top: 36px;
+    color: rgb(134, 134, 139);
+    font-size: 20px;
+    text-align: center;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;ṣ;
+    font-weight:600px;
+    margin: 36px 300px 0px 300px;
+}
+#unibodyenclosure{
+    display: block;  
+    width: 80%;
+    height: auto;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto;
+}
+h2{
+    font-size: 28px;
+    font-weight: 600px;
+    padding-left: 40px;
+    color: #f5f5f7;
+    height: 100px;
+    background: linear-gradient(to bottom, #000000, #1a1a1a);
+}
+.dialog-box {
+font-weight: bolder;
+font-size: 20px;
+height: 748px;
+display: flex;
+flex-direction: column;
+align-items: center;
+background-color: #000;
+color: white;
+padding: 20px;
+margin: 0px auto;
+width: 100%;
+text-align: center;
+transition: height 0.3s ease, padding 0.3s ease;
+padding-bottom: 0 !important;
+}
+
+.dialog-box .options {
+display: flex;
+justify-content: center;  /* center the buttons horizontally */
+flex-wrap: wrap;          /* wrap to next line if needed */
+gap: 10px;                /* space between buttons */
+margin-bottom: 20px;
+}
+
+.dialog-box button {
+    font-weight: bolder;
+    font-size: 15px;
+    background-color: #222;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+
+.dialog-box .options button:hover {
+  background: #555;
+  color: black;
+  transform: scale(1.1);
+}
+
+.dialog-box .images .image-box {
+  display: none;
+}
+
+.dialog-box .images .image-box.active {
+  display: block;
+}
+
+.dialog-box img {
+  height: auto;
+  width: 80%;
+  border-radius: 20px;
+  margin-top: 10px;
+  
+}
+  
+.space{
+    height: 100px;
+    background-color: rgb(34, 32, 32);
+}
+.camspecs{
+    width: 100%;
+    height: auto;
+    background-color: black;
+}
+#onehd{
+      line-height: 1;
+    font-size: 17px;
+    color: rgb(255, 121, 27);
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-weight: bolder;
+    text-align: center;
+    padding-top: 96px;
+}
+#one{
+    color: rgb(245, 245, 247);
+    font-size: 56px;
+    text-align: center;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-weight: bolder;
+}
+#oneimg{
+    margin-top: 50px;
+    width: 60%;
+    margin-right: 50px; 
+    margin-bottom: 0px;
+    padding: 0px;
+    display: block;
+    vertical-align: top; 
+}
+#onedef1{
+    width: 200px;
+    font-size: 25px;
+    font-weight: bold;
+    position: relative;
+    bottom: 500px;
+    left: 960px; 
+    color: #86868b;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    line-height: 0.9;
+}
+#onedefhgh1{
+     position: relative;
+    bottom: 500px;
+    left: 960px; 
+    color: rgb(255, 121, 27);
+    font-size: 40px;
+    font-weight: bolder;
+    line-height: 1.5;
+}
+#onedef2{
+    width: 200px;
+    font-size: 25px;
+    font-weight: bold;
+    position: relative;
+    bottom: 400px;
+    left: 960px; 
+    color: #86868b;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    line-height: 0.9;
+}
+#onedefhgh2{
+     position: relative;
+    bottom: 400px;
+    left: 960px; 
+    color: rgb(255, 121, 27);
+    font-size: 40px;
+    font-weight: bolder;
+    line-height: 1.5;
+}
+#onedesc {
+    display: block;
+    font-size: 21px;
+    font-weight: bolder;
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    color: #555;
+    display: block;      
+    line-height: 1.4;    
+}
+
+mark {
+background-color: black;
+font-weight: bolder;
+color: white;
+line-height: normal;
+display: inline;   
+white-space: nowrap; 
+vertical-align: middle; 
+}
+#portrait{
+    display: block;
+    width: 60%;
+    margin: 100px auto;
+}

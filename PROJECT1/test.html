@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video/Image Carousel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="teststyle.css">
+
+</head>
+<body>
+<div class="space" style="height: 20vh;"></div>
+<div id="spec-feature-component" class="feature-component-container state-default">
+
+    <div class="feature-nav-arrows">
+        <button class="feature-arrow-btn" id="feature-prev" aria-label="Previous feature">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+        <button class="feature-arrow-btn" id="feature-next" aria-label="Next feature">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+    </div>
+
+    <div class="feature-list">
+        <div class="feature-item">
+            <button class="feature-btn" data-target="content-colors">
+                <span class="feature-icon colors"></span> <span>Colors</span>
+            </button>
+            <div class="feature-item-content">
+                <div>
+                    <p>Colors. Choose from three bold finishes. <span id="color-name">iPhone 17 Pro shown in Cosmic Orange.</span></p>
+                    <div class="color-swatches">
+                        <button class="color-swatch active" data-color="orange" data-img="option1.jpg" data-text="iPhone 17 Pro shown in Cosmic Orange." style="background-color: #f37a22;"></button>
+                        <button class="color-swatch" data-color="blue" data-img="opt2.jpg" data-text="iPhone 17 Pro shown in Deep Blue." style="background-color: #2a3a4e;"></button>
+                        <button class="color-swatch" data-color="silver" data-img="opt3.jpg" data-text="iPhone 17 Pro shown in Silver." style="background-color: #e2e3e4;"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="feature-item">
+            <button class="feature-btn" data-target="content-unibody">
+                <span class="feature-icon plus"></span> <span>Aluminum unibody</span>
+            </button>
+            <div class="feature-item-content">
+                <div>
+                    <p><strong>Aluminum unibody.</strong> Optimized for performance and battery. Aluminum alloy is remarkably light and has exceptional thermal conductivity.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="feature-item">
+            <button class="feature-btn" data-target="content-vapor">
+                <span class="feature-icon plus"></span>
+                <span>Vapor chamber</span>
+            </button>
+            <div class="feature-item-content">
+                <div>
+                    <p><strong>Vapor chamber.</strong> Deionized water sealed inside moves heat away from the A19 Pro chip, allowing for even higher sustained performance.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="feature-item">
+            <button class="feature-btn" data-target="content-shield">
+                <span class="feature-icon plus"></span>
+                <span>Ceramic Shield</span>
+            </button>
+            <div class="feature-item-content">
+                <div>
+                    <p><strong>Ceramic Shield.</strong> Protects the back of iPhone 17 Pro, making it 4x more resistant to cracks. New Ceramic Shield 2 on the front has 3x better scratch resistance.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="feature-item">
+            <button class="feature-btn" data-target="content-display">
+                <span class="feature-icon plus"></span>
+                <span>Immersive pro display</span>
+            </button>
+            <div class="feature-item-content">
+                <div>
+                    <p><strong>Immersive pro display.</strong> Our best-ever 6.3-inch and 6.9-inch Super Retina XDR displays. Brighter. Better anti-reflection. ProMotion up to 120Hz.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <button class="feature-btn" data-target="content-camera">
+                <span class="feature-icon plus"></span>
+                <span>Camera Control</span>
+            </button>
+            <div class="feature-item-content">
+                <div>
+                    <p><strong>Camera Control.</strong> Instantly take a photo, record video, adjust settings, and more. So you never miss a moment.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="feature-item">
+            <button class="feature-btn" data-target="content-action">
+                <span class="feature-icon plus"></span>
+                <span>Action button</span>
+            </button>
+            <div class="feature-item-content">
+                <div>
+                    <p><strong>Action button.</strong> A customizable fast track to your favorite feature. Long press to launch the action you want — Silent mode, Translation, Shortcuts, and more.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="feature-content-area">
+        <button class="feature-reset-btn" aria-label="Reset features">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <div class="feature-content active" id="content-default">
+            <img src="default color.jpg" alt="Default iPhone 17 Pro view">
+        </div>
+
+        <div class="feature-content" id="content-colors">
+            <img src="option1.jpg" alt="iPhone in Cosmic Orange" id="color-display-image">
+        </div>
+        <div class="feature-content" id="content-unibody">
+            <video src="large_2x6.mp4" autoplay muted loop playsinline></video>
+        </div>
+        <div class="feature-content" id="content-vapor">
+            <video src="large_2x7.mp4" autoplay muted loop playsinline></video>
+        </div>
+        <div class="feature-content" id="content-shield">
+            <img src="ceramic_shield__de0653vp43cm_large_2x.jpg" alt="Ceramic Shield">
+        </div>
+        <div class="feature-content" id="content-display">
+            <img src="pro_display__c0jmzc5emcae_large_2x.jpg" alt="Immersive Pro Display">
+        </div>
+        <div class="feature-content" id="content-camera">
+            <img src="camera_control__cy5kilwa0kwi_large_2x.jpg" alt="Camera Control">
+        </div>
+        <div class="feature-content" id="content-action">
+            <video src="large_2x8.mp4" autoplay muted loop playsinline></video>
+        </div>
+    </div>
+</div>
+          
+
+<div class="space" style="height: 20vh;"></div>
+    
+
+    <script src="test.js"></script>
+</body>
+</html>

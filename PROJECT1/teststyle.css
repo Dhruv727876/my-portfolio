@@ -1,0 +1,259 @@
+body {
+    
+    color: #f5f5f7;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+    /* This centers the component on the page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+/* =================================
+   NEW FEATURE COMPONENT (Accordion Model - Corrected)
+   ================================= */
+
+/* 1. Main Container (Sizing & 3-Column Grid) */
+#spec-feature-component {
+    width: 85vw; 
+    height: 85vh; 
+    min-height: 550px; 
+    background-color: #000 !important;
+    margin: 5% auto; 
+    display: grid !important;
+    grid-template-columns: 50px auto 1.5fr; /* Nav | List | Content */
+    gap: 20px;
+    padding: 30px;
+    padding-bottom: 0px;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+
+/* 2. Arrow Navigation (Column 1) */
+#spec-feature-component .feature-nav-arrows {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    opacity: 0; /* Hidden by default */
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+#spec-feature-component.state-active .feature-nav-arrows {
+    opacity: 1; /* Show when active */
+    visibility: visible;
+}
+
+/* 3. Feature List (Column 2 - Accordion) */
+#spec-feature-component .feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto; 
+}
+#spec-feature-component .feature-item {
+    
+}
+#spec-feature-component .feature-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    
+    /* --- NEW STYLES --- */
+    background: #1c1c1e;         /* Match card background */
+    color: #fff !important;         /* New text color */
+    border-radius: 12px;       /* Match card radius */
+    padding: 15px;             /* Match card padding */
+    
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    width: fit-content;
+    
+    /* --- MODIFIED ANIMATION --- */
+    opacity: 1;
+    max-height: 100px; /* Set a max-height large enough for the content */
+    overflow: hidden;
+    
+    box-sizing: border-box; /* Ensures padding is part of the height */
+    
+    /* Update transition */
+    transition: color 0.2s ease, opacity 0.3s ease, max-height 0.4s ease, 
+                padding 0.4s ease;
+}
+#spec-feature-component .feature-btn:hover {
+    color: #fff !important; 
+}
+#spec-feature-component .feature-btn:hover .feature-icon {
+    background: #fff;
+    color: #000;
+}
+
+/* This rule collapses the button when active */
+#spec-feature-component .feature-item.active .feature-btn {
+    opacity: 0;
+    max-height: 0;
+   
+    padding-top: 0;
+    padding-bottom: 0;
+}
+/* Icon styling */
+#spec-feature-component .feature-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #888; 
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+#spec-feature-component .feature-icon.plus::before {
+    content: '+';
+    transition: transform 0.3s ease;
+}
+#spec-feature-component .feature-icon.colors {
+    background-color: #f37a22; /* Orange circle */
+}
+
+/* Active State styling */
+
+#spec-feature-component .feature-item.active .feature-btn .feature-icon {
+    background: #fff;
+    color: #000;
+    transform: rotate(45deg); /* This is the + to X animation */
+}
+
+/* 4. Accordion Content (The expanding part) */
+#spec-feature-component .feature-item-content {
+    /* This is the invisible animation wrapper */
+    display: grid;
+    grid-template-rows: 0fr; /* Start collapsed */
+    transition: grid-template-rows 0.4s ease-out;
+    overflow: hidden;
+    /* NO background, margin, or padding here */
+}
+#spec-feature-component .feature-item.active .feature-item-content {
+    grid-template-rows: 1fr; /* Expand to full content height */
+}
+
+/* This is the VISIBLE card *inside* the wrapper */
+#spec-feature-component .feature-item-content > div {
+    overflow: hidden;
+    background: #1c1c1e; 
+    border-radius: 12px;
+    width: 300px;
+    box-sizing: border-box; /* Add this */
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    transition: clip-path 0.4s ease-out;
+
+}
+
+#spec-feature-component .feature-item.active .feature-item-content > div {
+    /* Expand to the full rectangle */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Content inside the card */
+#spec-feature-component .feature-item-content p {
+    color: #fff;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    padding: 15px; 
+    padding-bottom: 0; 
+}
+#spec-feature-component .feature-item-content p:last-child {
+     padding-bottom: 15px;
+}
+#spec-feature-component .feature-item-content p strong {
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* "Colors" Swatches */
+#spec-feature-component .color-swatches {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px; 
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+#spec-feature-component .color-swatch {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+#spec-feature-component .color-swatch.active {
+    border-color: #fff; 
+}
+
+/* 5. Content Area (Column 3) */
+#spec-feature-component .feature-content-area {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+#spec-feature-component .feature-reset-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 20; 
+    background: rgba(40, 40, 40, 0.85);
+    color: #fff;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+#spec-feature-component .feature-reset-btn:hover {
+    background: #fff;
+    color: #000;
+}
+#spec-feature-component .feature-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+#spec-feature-component .feature-content.active {
+    opacity: 1;
+    visibility: visible;
+}
+#spec-feature-component .feature-content img,
+#spec-feature-component .feature-content video {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

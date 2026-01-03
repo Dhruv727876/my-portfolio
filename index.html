@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Code. Create. Secure.</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="script.js"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  
+  <body class="bg-cyber-dark text-white font-sans overflow-x-hidden selection:bg-cyber-cyan selection:text-black">
+    
+    <div class="fixed inset-0 z-0 opacity-20 pointer-events-none bg-grid-pattern"></div>
+
+    <nav class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-2xl">
+      <div class="backdrop-blur-xl bg-cyber-glass border border-white/10 rounded-full px-6 py-4 flex justify-between items-center shadow-2xl">
+        <div class="font-cyber font-bold text-cyber-cyan tracking-wider">
+          Dhruv
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm text-gray-300 font-medium">
+          <a href="#home" class="hover:text-cyber-cyan transition-colors">Home</a>
+          <a href="#projects" class="hover:text-cyber-cyan transition-colors">Projects</a>
+          <a href="#services" class="hover:text-cyber-cyan transition-colors">Services</a>
+          <a href="#contact" class="hover:text-cyber-cyan transition-colors">Contact</a>
+        </div>
+        <button class="md:hidden text-cyber-cyan">///</button>
+      </div>
+    </nav>
+
+    <section id="home" class="relative z-10 min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20">
+      <div class="hero-glow mb-8 relative group">
+        <img
+          src="herologo.png"
+          alt="Cyber Cube"
+          class="w-64 h-64 md:w-96 md:h-96 object-contain animate-pulse mix-blend-screen hover:scale-110 transition-transform duration-500"
+        />
+        <div class="absolute inset-0 bg-cyber-cyan/20 blur-[100px] rounded-full -z-10"></div>
+      </div>
+
+      <h1 class="font-cyber text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6 leading-tight">
+        <span class="block text-white">CODE.</span>
+        <span class="block text-gray-400">CREATE.</span>
+        <span class="block text-cyber-cyan text-glow">SECURE.</span>
+      </h1>
+
+      <p class="text-gray-400 text-lg md:text-xl max-w-xl mx-auto mb-12 font-light">
+        I build digital fortresses and interactive experiences.
+        <span class="text-cyber-cyan">CSE Student</span> &
+        <span class="text-cyber-purple">Cybersecurity Enthusiast</span>.
+      </p>
+
+      <div class="flex gap-4">
+        <a href="#contact" class="px-8 py-3 bg-cyber-cyan text-black font-bold rounded-full hover:bg-white transition-all transform hover:scale-105">
+          Start Project
+        </a>
+        <a href="#projects" class="px-8 py-3 border border-white/20 rounded-full hover:bg-white/10 transition-all">
+          View Work
+        </a>
+      </div>
+    </section>
+
+    <section id="services" class="relative z-10 py-24 px-4 max-w-6xl mx-auto">
+      <h2 class="font-cyber text-3xl mb-12 text-center text-gray-500">
+        MY SPECIALTIES
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="group relative bg-neutral-900/50 border border-white/10 p-8 rounded-2xl backdrop-blur-sm box-glow transition-all duration-300">
+          <div class="text-cyber-cyan text-4xl mb-4">01</div>
+          <h3 class="font-cyber text-xl font-bold mb-2 group-hover:text-cyber-cyan">
+            Web Development
+          </h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            High-performance React & Tailwind websites that look expensive and load instantly.
+          </p>
+        </div>
+
+        <div class="group relative bg-neutral-900/50 border border-white/10 p-8 rounded-2xl backdrop-blur-sm box-glow transition-all duration-300">
+          <div class="text-cyber-purple text-4xl mb-4">02</div>
+          <h3 class="font-cyber text-xl font-bold mb-2 group-hover:text-cyber-purple">
+            Cybersecurity
+          </h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Secure code practices, vulnerability assessment, and digital safety protocols.
+          </p>
+        </div>
+
+        <div class="group relative bg-neutral-900/50 border border-white/10 p-8 rounded-2xl backdrop-blur-sm box-glow transition-all duration-300">
+          <div class="text-white text-4xl mb-4">03</div>
+          <h3 class="font-cyber text-xl font-bold mb-2 group-hover:text-white">
+            UI/UX Design
+          </h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Translating complex ideas into intuitive, glassmorphic interfaces.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="relative z-10 py-24 px-4 max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+        <div>
+          <h2 class="font-cyber text-3xl md:text-4xl text-white mb-2">
+            FEATURED_WORK
+          </h2>
+          <div class="h-1 w-20 bg-cyber-cyan shadow-[0_0_10px_#00f3ff]"></div>
+        </div>
+        <a href="#" class="hidden md:block text-cyber-cyan hover:text-white transition-colors mt-4 md:mt-0 font-cyber text-sm tracking-widest">
+          // VIEW_GITHUB_REPO
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <div class="group relative rounded-xl overflow-hidden border border-white/10 bg-neutral-900/50 backdrop-blur-sm">
+          <div class="aspect-video bg-black relative overflow-hidden">
+            <img
+              src="iphone-preview.png"
+              alt="iPhone 17 Pro Clone"
+              class="object-cover w-full h-full group-hover:scale-110 group-hover:opacity-50 transition-all duration-500"
+            />
+            
+            <div class="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <a 
+                href="PROJECT1/indexAI.html" 
+                target="_blank"
+                class="px-6 py-2 bg-cyber-cyan text-black font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-white"
+              >
+                Launch Experience
+              </a>
+            </div>
+          </div>
+          
+          <div class="p-6">
+            <h3 class="font-cyber text-xl font-bold text-white mb-2 group-hover:text-cyber-cyan transition-colors">
+              iPhone 17 Pro Clone
+            </h3>
+            <p class="text-gray-400 text-sm mb-4">
+              A pixel-perfect replica of Apple's launch page featuring scroll-triggered animations and bento-grid layouts.
+            </p>
+            <div class="flex gap-2">
+              <span class="text-xs border border-white/20 px-2 py-1 rounded text-cyber-purple">React</span>
+              <span class="text-xs border border-white/20 px-2 py-1 rounded text-cyber-cyan">Framer Motion</span>
+              <span class="text-xs border border-white/20 px-2 py-1 rounded text-white">Tailwind</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative rounded-xl overflow-hidden border border-white/10 bg-neutral-900/50 backdrop-blur-sm">
+          <div class="aspect-video bg-black relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=1000&auto=format&fit=crop"
+              alt="Web Design Portfolio"
+              class="object-cover w-full h-full group-hover:scale-110 group-hover:opacity-50 transition-all duration-500"
+            />
+            <div class="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <a href="#" class="px-6 py-2 bg-cyber-purple text-white font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-white hover:text-black">
+                View Gallery
+              </a>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-cyber text-xl font-bold text-white mb-2 group-hover:text-cyber-purple transition-colors">
+              Modern Web Layouts
+            </h3>
+            <p class="text-gray-400 text-sm mb-4">
+              A collection of responsive, high-conversion landing pages and UI components built for modern brands.
+            </p>
+            <div class="flex gap-2">
+              <span class="text-xs border border-white/20 px-2 py-1 rounded text-cyber-purple">HTML5</span>
+              <span class="text-xs border border-white/20 px-2 py-1 rounded text-cyber-cyan">CSS Grid</span>
+              <span class="text-xs border border-white/20 px-2 py-1 rounded text-white">Figma</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="relative z-10 py-24 px-4 text-center">
+      <h2 class="font-cyber text-4xl md:text-5xl mb-6 text-white">
+        READY TO <span class="text-cyber-cyan">COLLABORATE?</span>
+      </h2>
+      <p class="text-gray-400 max-w-md mx-auto mb-8">
+        Currently available for freelance web development and cybersecurity audits.
+      </p>
+      <a href="cinefix1.12.19@gmail.com" class="inline-block px-10 py-4 bg-transparent border-2 border-cyber-cyan text-cyber-cyan font-cyber font-bold tracking-widest hover:bg-cyber-cyan hover:text-black hover:shadow-[0_0_40px_rgba(0,243,255,0.4)] transition-all duration-300">
+        INITIATE_CONTACT()
+      </a>
+    </section>
+
+    <footer class="text-center py-12 text-gray-600 text-sm relative z-10">
+      <p>
+        &copy; 2026 Dhruv. Powered by 
+        <span class="text-cyber-cyan font-bold tracking-wider hover:text-white transition-colors cursor-pointer">HRILAX</span>.
+      </p>
+    </footer>
+  </body>
+</html>

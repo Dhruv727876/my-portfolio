@@ -1,0 +1,2555 @@
+/* =================================
+   Global Styles & Variables
+   ================================= */
+
+/* A good practice is to define colors in variables for easy changes */
+:root {
+    --apple-dark-grey: rgb(34, 32, 32);
+    --apple-light-grey: rgb(203, 193, 193);
+    --apple-text-grey: #86868b;
+    --apple-orange: rgb(255, 121, 27);
+    --apple-blue: rgba(47, 77, 178, 0.853);
+    --apple-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --apple-pro-font: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    background: #000;
+    /* background: linear-gradient(to bottom, #000000, #1a1a1a); */
+    color: #f5f5f7; /* Default text color for the body */
+    font-family: var(--apple-font);
+}
+
+/* =================================
+   Scroll-to-Reveal Animation
+   ================================= */
+
+/* 1. The starting state (hidden and moved down) */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(70px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* 2. The final state (visible and in place) */
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =================================
+   Header & Navigation
+   ================================= */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    color: var(--apple-light-grey);
+    font-size: 17px;
+    padding: 10px 0;
+    font-family: var(--apple-pro-font);
+    font-weight: 600;
+}
+#logo{
+    font-size: 25px;
+}
+/* =================================
+   Discount Banner
+   ================================= */
+.discount-banner {
+    text-align: center;
+    background-color: var(--apple-dark-grey);
+    color: white;
+    padding: 12px 15px;
+    font-size: 16px;
+}
+
+/* =================================
+   Hero Section
+   ================================= */
+.hero-image {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    line-height: 0;  
+    background-color: rgb(34, 32, 32);
+}
+
+#iphone17pro {
+    display: block;
+    position: relative;  
+    width: 100%;
+    height: auto;
+    /* vertical-align: middle; */
+}
+
+#buy{
+    display: block;
+    position: absolute;
+    top: 89%;
+    left: 50%;
+    
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--apple-blue);
+    color: white;
+    padding: 15px 25px;
+    font-size: 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+#pricing{
+    display: block;
+    position: absolute;
+    top: 95%;
+    left: 43%;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+    text-align: center;
+}
+#buy:hover {
+    transform: scale(1.05);
+    background-color: #4a69bd;
+} 
+
+
+/* starts here */
+/* =================================
+   Features & Slideshow
+   ================================= */
+.features {
+    background-color: rgb(29,29,31);
+    padding: 80px 0px;
+}
+
+.highlights-title {
+    
+    font-weight: bold;
+    color: white;
+    font-size: 50px;
+    padding-left: 80px;
+}
+.interactive-carousel {
+ position: relative;
+ width: 100%; 
+ max-width: 2160px; /* <<< ADD THIS BACK */
+ height: 600px; /* <<< SET YOUR NEW HEIGHT HERE (e.g., 550px) */
+ margin: 20px auto; 
+ overflow: visible; 
+}
+/* --- Wrapper (This is the "Window") --- */
+.interactive-carousel .carousel-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* <<< THIS CLIPS THE SLIDES */
+    
+    
+}
+
+/* --- Track (Moves inside the wrapper) --- */
+.interactive-carousel .carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+    /* gap: 20px; <<< REMOVE GAP, use margin */
+}
+
+/* --- Slide Styling --- */
+.interactive-carousel .carousel-slide {
+    /* Use the fixed widths from your other carousel */
+    width: 950px ; /* Example: Set a width */
+    height: 100%;
+    flex-shrink: 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    position: relative; 
+    
+    /* ADD MARGIN-RIGHT for the gap */
+    margin-right: 20px; 
+}
+
+
+/* --- Media Styling (Fill the slide) --- */
+.interactive-carousel .carousel-slide img,
+.interactive-carousel .carousel-slide video {
+    width: 100%;  
+    height: 100%; 
+    border-radius: 18px !important; 
+    object-fit: cover;
+}
+
+/* --- Controls (Positioned relative to the main container) --- */
+.interactive-carousel .carousel-controls {
+    position: absolute;
+    top: 100%; /* <<< CHANGED: Place at the bottom edge */
+    margin-top: 20px; /* <<< ADDED: Create 20px gap */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20; 
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    padding: 0px 10px;
+    /* REMOVED: bottom: 20px; */
+}
+/* ... (rest of your dot/button styles are fine) ... */
+/* Pagination Dots */
+.interactive-carousel .pagination-dots {
+    display: flex;
+    gap: 20px;
+    padding: 5px 10px;
+}
+
+.interactive-carousel .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #888;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.interactive-carousel .dot.is-active {
+    background: #fff;
+}
+
+/* Play/Pause Button */
+.interactive-carousel .play-pause-btn {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 7px;
+}
+
+/* =================================
+    Dynamic Text Positioning
+   ================================= */
+
+/* Base style for all slide text */
+.interactive-carousel .carousel-slide p {
+    position: absolute; 
+    z-index: 12; /* On top of image/video */
+    width: 90%; /* Default width, can be overridden */
+    max-width: 450px; /* Max width for text blocks */
+    color: white; /* Default color */
+    font-size: 20px;
+    font-weight: 600; 
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); 
+    line-height: 1.4;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.interactive-carousel .carousel-slide:nth-child(3) p {
+    color: black;
+     /* Optional: remove the shadow, as it looks odd with black text */
+}
+/* For Slides 1 & 5 */
+.interactive-carousel .text-top-center {
+    top: 80px; 
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+/* For Slide 2 */
+.interactive-carousel .text-bottom-center {
+    bottom: 80px; 
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    
+}
+
+/* For Slides 3 & 4 */
+.interactive-carousel .text-top-left {
+    top: 80px; 
+    left: 60px;
+    text-align: left;
+}
+
+/* For Slide 6 */
+.interactive-carousel .text-mid-left {
+    display: block;
+    top: 50%;
+    left: 60px;
+    transform: translateY(-50%);
+    text-align: left;
+    font-size: 24px; /* Make this one bigger */
+    font-weight: 700;
+    max-width: 500px; /* Wider text block */
+}
+.interactive-carousel .color-orange{
+    background-image: linear-gradient(108deg, rgb(8, 148, 255), rgb(201, 89, 221) 34%, rgb(255, 46, 84) 68%, rgb(255, 144, 4));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-family: var(--apple-pro-font);
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+/* Color classes (for Slide 6) */
+.interactive-carousel .text-mid-left  {
+    color: rgb(255, 121, 27);
+    display: block; /* Makes it stack */
+    margin-bottom: 5px;
+}
+
+.interactive-carousel .text-mid-left .color-blue {
+    color: rgb(47, 77, 178);
+    display: block; /* Makes it stack */
+    margin-bottom: 5px;
+}
+/* ends here */
+/* =================================
+   Specifications Section (Unibody)
+   ================================= */
+.specifications {
+    background-color: black;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.specifications h4 {
+    color: var(--apple-orange);
+    padding-bottom: 10px;
+    font-size: 24px;
+    font-family: var(--apple-pro-font);
+}
+
+.spec-heading {
+    color: #f5f5f7;
+    font-size: 40px;
+    font-family: var(--apple-font);
+    font-weight: bold;
+}
+
+.spec-body {
+    color: var(--apple-text-grey);
+    font-size: 20px;
+    font-family: var(--apple-pro-font);
+    font-weight: 600; /* Corrected font-weight */
+    max-width: 650px; /* Constrain line length for readability */
+    margin: 36px auto 0 auto;
+    line-height: 1.5;
+}
+
+.unibody-enclosure-img {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: 40px auto 0 auto;
+}
+
+/* =================================
+   Dialog Box (Color Picker)
+   ================================= */
+.dailogmain {
+    background: linear-gradient(to bottom, #000000, #1a1a1a);
+    padding: 60px 20px;
+}
+h2 {
+    font-size: 50px;
+    font-weight: 600; /* Corrected font-weight */
+    padding-left: 60px;
+    color: #f5f5f7;
+    /* background: linear-gradient(to bottom, #000000, #1a1a1a); */
+}
+/* 1. Main Container (Sizing & 3-Column Grid) */
+#spec-feature-component {
+    width: 85vw; 
+    height: 85vh; 
+    min-height: 550px; 
+    background-color: #000 !important;
+    margin: 5% auto; 
+    display: grid !important;
+    grid-template-columns: 50px auto 1.5fr; /* Nav | List | Content */
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+
+/* 2. Arrow Navigation (Column 1) */
+#spec-feature-component .feature-nav-arrows {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 200px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    opacity: 0; /* Hidden by default */
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    gap: 20px;
+
+    
+}
+#spec-feature-component .feature-arrow-btn {
+    background: #1c1c1e; /* <--- THIS IS THE FIX */
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 25px;
+    font-weight: bolder;
+    border-radius: 50%;
+    
+}
+#spec-feature-component.state-active .feature-nav-arrows {
+    opacity: 1; /* Show when active */
+    visibility: visible;
+    
+}
+
+/* 3. Feature List (Column 2 - Accordion) */
+#spec-feature-component .feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto; 
+    padding: 30px 0px;
+    
+}
+
+#spec-feature-component .feature-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    
+    /* --- NEW STYLES --- */
+    background: #1c1c1e;         /* Match card background */
+    color: #fff !important;         /* New text color */
+    border-radius: 12px;       /* Match card radius */
+    padding: 15px;             /* Match card padding */
+    
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    width: fit-content;
+    
+    /* --- MODIFIED ANIMATION --- */
+    opacity: 1;
+    max-height: 100px; /* Set a max-height large enough for the content */
+    overflow: hidden;
+    
+    box-sizing: border-box; /* Ensures padding is part of the height */
+    
+    /* Update transition */
+    transition: color 0.2s ease, opacity 0.3s ease, max-height 0.4s ease, 
+                padding 0.4s ease;
+}
+#spec-feature-component .feature-btn:hover {
+    color: #fff !important; 
+}
+#spec-feature-component .feature-btn:hover .feature-icon {
+    background: #fff;
+    color: #000;
+    transform: rotate(45deg);
+}
+
+/* This rule collapses the button when active */
+#spec-feature-component .feature-item.active .feature-btn {
+    opacity: 0;
+    max-height: 0;
+   
+    padding-top: 0;
+    padding-bottom: 0;
+}
+/* Icon styling */
+#spec-feature-component .feature-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    /* background: #888;  */
+    border: 1px solid white;
+    color: white;
+    /* font-weight: bold; */
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+#spec-feature-component .feature-icon.plus::before {
+    content: '+';
+    transition: transform 0.3s ease;
+}
+#spec-feature-component .feature-icon.colors {
+    background-color: #f37a22; /* Orange circle */
+}
+
+/* Active State styling */
+
+#spec-feature-component .feature-item.active .feature-btn .feature-icon {
+    background: #fff;
+    color: #000;
+    transform: rotate(45deg); /* This is the + to X animation */
+    
+}
+
+/* 4. Accordion Content (The expanding part) */
+#spec-feature-component .feature-item-content {
+    /* This is the invisible animation wrapper */
+    display: grid;
+    grid-template-rows: 0fr; /* Start collapsed */
+    transition: grid-template-rows 0.4s ease-out;
+    overflow: hidden;
+    /* NO background, margin, or padding here */
+}
+#spec-feature-component .feature-item.active .feature-item-content {
+    grid-template-rows: 1fr; /* Expand to full content height */
+}
+
+/* This is the VISIBLE card *inside* the wrapper */
+#spec-feature-component .feature-item-content > div {
+    overflow: hidden;
+    background: #1c1c1e; 
+    border-radius: 12px;
+    width: 305px;
+    box-sizing: border-box; /* Add this */
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    transition: clip-path 0.4s ease-out;
+    
+
+}
+
+#spec-feature-component .feature-item.active .feature-item-content > div {
+    /* Expand to the full rectangle */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Content inside the card */
+#spec-feature-component .feature-item-content p {
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.4;
+    padding: 15px; 
+    padding-bottom: 0; 
+    font-family: var(--apple-pro-font);
+    
+    letter-spacing: 0.231px;
+}
+#spec-feature-component .feature-item-content p:last-child {
+     padding-bottom: 15px;
+}
+#spec-feature-component .feature-item-content p strong {
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* "Colors" Swatches */
+#spec-feature-component .color-swatches {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px; 
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+#spec-feature-component .color-swatch {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+#spec-feature-component .color-swatch.active {
+    border-color: #fff; 
+}
+
+/* 5. Content Area (Column 3) */
+#spec-feature-component .feature-content-area {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+#spec-feature-component .feature-reset-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 20; 
+    background: rgba(40, 40, 40, 0.85);
+    color: #fff;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+#spec-feature-component .feature-reset-btn:hover {
+    background: #fff;
+    color: #000;
+}
+#spec-feature-component .feature-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+#spec-feature-component .feature-content.active {
+    opacity: 1;
+    visibility: visible;
+}
+#spec-feature-component .feature-content img,
+#spec-feature-component .feature-content video {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* =================================
+   Camera Specs Section (Corrected Layout)
+   ================================= */
+.camspecs{
+    width: 100%;
+    height: auto;
+    background-color: black;
+}
+#onehd{
+      line-height: 1;
+    font-size: 24px;
+    color: rgb(255, 121, 27);
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-weight: bolder;
+    text-align: center;
+    padding-top: 96px;
+}
+#one{
+    color: rgb(245, 245, 247);
+    font-size: 56px;
+    text-align: center;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-weight: bolder;
+}
+#oneimg{
+    position: relative;
+    left: -15%;
+    margin-top: 50px;
+    width: 75%;
+    margin-right: 50px; 
+    margin-bottom: 0px;
+    padding: 0px;
+    display: block;
+    /* vertical-align: top;  */
+}
+
+#onedef1{
+    width: 200px;
+    font-size: 25px;
+    font-weight: bold;
+    position: relative;
+    bottom: 500px;
+    left: 960px; 
+    color: #86868b;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    line-height: 0.9;
+}
+#onedefhgh1{
+     position: relative;
+    bottom: 500px;
+    left: 960px;
+    color: rgb(255, 121, 27);
+    font-size: 40px;
+    font-weight: bolder;
+    line-height: 1.5;
+}
+#onedef2{
+    width: 200px;
+    font-size: 25px;
+    font-weight: bold;
+    position: relative;
+    bottom: 400px;
+    left: 960px; 
+    color: #86868b;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    line-height: 0.9;
+}
+#onedefhgh2{
+     position: relative;
+    bottom: 400px;
+    left: 960px; 
+    color: rgb(255, 121, 27);
+    font-size: 40px;
+    font-weight: bolder;
+    line-height: 1.5;
+}
+.camspecs-description {
+    font-size: 21px;
+    font-weight: bold;
+    max-width: 800px;
+    margin: -80px auto 70px auto;
+    text-align: center;
+    color: var(--apple-text-grey);
+    line-height: 1.4;
+}
+
+.camspecs-description mark {
+    background-color: black;
+    color: white;
+}
+
+.portrait-img {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    margin: 100px auto 0 auto;
+}
+
+/* =================================
+   Media Queries for Responsiveness
+   ================================= */
+
+/* For Tablets and smaller desktops */
+@media (max-width: 1024px) {
+    .camspecs-layout {
+        grid-template-columns: 1fr; /* Stack on top of each other */
+        text-align: center;
+    }
+
+    .camspecs-text-container {
+        flex-direction: row; /* Place side-by-side on tablet */
+        justify-content: center;
+    }
+}
+
+/* For Mobile Phones */
+@media (max-width: 768px) {
+    .navbar {
+        font-size: 12px;
+        padding: 10px 5px;
+    }
+    
+    .highlights-title,
+    .spec-heading,
+    .section-heading {
+        font-size: 32px; /* Reduce heading sizes */
+    }
+
+    .spec-body,
+    .camspecs-description {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+
+    .slideshow-container {
+        height: 450px; /* Adjust slideshow height */
+    }
+
+    .slide p {
+        font-size: 16px;
+    }
+    
+    .camspecs-text-container {
+        flex-direction: column; /* Stack vertically on mobile */
+        gap: 40px;
+    }
+
+    .spec-point p {
+        font-size: 20px;
+    }
+
+    .spec-highlight {
+        font-size: 32px !important;
+    }
+}
+
+/* The horizontal bar that holds the buttons */
+.focal-length-container{
+    width: 100%;
+    max-width: 900px; /* Adjust size as needed */
+    margin: 30px auto;
+}
+/* =================================
+   Focal Length Selector (Restructured for 500px)
+   ================================= */
+
+/* The horizontal bar that holds the buttons */
+.focal-length-selector {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Changed to 'center' for a better look in a narrow box */
+    align-items: center;
+    background-color: #333336;
+    border-radius: 30px;
+    padding: 15px 15px;
+    width: 100%;
+    max-width: 500px; /* Set to the new, narrower width */
+    margin: 0 auto;
+    gap: 5px;
+   
+
+}
+
+/* This is the sliding highlighter (no changes needed here) */
+.focal-length-selector::before {
+    content: '';
+    position: absolute;
+    
+    top:2px;
+    height: calc(100% - 4px);
+    left: var(--highlighter-left, 10px);
+    width: var(--highlighter-width, 0px);
+    background-color: #f5f5f7;
+    border-radius: 20px;
+    transition: left 0.3s ease, width 0.3s ease;
+}
+
+/* Styling for individual buttons (shrunk to fit) */
+.focal-btn {
+    background-color: transparent;
+    color: #f5f5f7;
+    border: none;
+    padding: 0px 5px; /* Reduced padding to make buttons smaller */
+    font-size: 14px;   /* Reduced font size to match */
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+/* Styling for the active button's text (no changes needed here) */
+.focal-btn.active {
+    border-radius: 20px;
+   
+    font-weight: bolder;
+    /* transform: scale(1.2); */
+    color: #333336;
+}
+
+
+/* Container for the entire section */
+.focal-length-selector-section {
+    background-color: black;
+    padding: 20px;
+    
+    /* Flexbox properties for centering */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertical centering */
+    align-items: center;     /* Horizontal centering */
+    min-height: 100vh;       /* Makes the section at least the full height of the screen */
+}
+/* Add these new rules to your style.css file */
+
+.focal-image-viewer {
+    width: 90%;
+    max-width: 900px; /* Adjust size as needed */
+    margin: 40px auto 0 auto; /* Space it below the zoom text */
+}
+
+/* THIS IS THE MOST IMPORTANT RULE
+  It hides all the image boxes by default.
+*/
+.focal-image-box {
+    display: none;
+}
+
+/* THIS RULE SHOWS THE IMAGE
+  It only shows the one image box that has the 'active' class.
+*/
+.focal-image-box.active {
+    display: block;
+}
+
+/* Style the image itself to fit nicely */
+.focal-image-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+/* Styling for the "8x" display below the selector */
+.zoom-display {
+    color: #f5f5f7; /* Change the text color */
+    font-size: 20px;  /* Make the text larger or smaller */
+    font-weight: bold; /* Use 'bold', 'normal', or a number like 700 */
+    margin-top: 20px;
+    font-family: var(--apple-pro-font); /* Change the font family */
+    letter-spacing: 1px; /* Add or reduce space between characters */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add a shadow effect */
+}
+.camspecs-description2 {
+    width: 70%;
+    font-family: var(--apple-pro-font);
+    font-size: 20px;
+    font-weight: bold;
+    max-width: 800px;
+    margin: 125px auto 0 auto;
+    text-align: center;
+    color: var(--apple-text-grey);
+    line-height: 1.4;
+}
+.camspecs-description2 mark {
+    background-color: black;
+    color: white;
+}
+#rear_cam{
+    
+    height: 544px;
+    width: 100%;
+    margin: 100px 0 0 0;
+    /* background-image: url(rear_camera__c9hqca901ugm_large_2x.jpg);
+    background-size: cover; */
+}
+.rear-cam-specs{
+    margin-top: 70px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+   
+}
+.specs1{
+    width: 393px;
+    height: 177px;
+    margin: 50px 20px;
+}
+.specs2{
+    width: 393px;
+    height: 177px;
+    margin: 50px 20px;
+}
+.specs3{
+    width: 393px;
+    height: 177px;
+    margin: 50px 20px;
+}
+.cam-specs-heading{
+    display: block;
+    font-family: var(--apple-pro-font);
+    font-size: 22px;
+    font-weight: 600;
+    padding-bottom: 15px;
+    border-bottom: solid 1px var(--apple-text-grey);
+}
+.cam-specs-body{
+    font-size: 20px;
+    font-family: var(--apple-pro-font);
+    color: var(--apple-text-grey);
+    padding-top: 15px;
+    line-height: 35px;
+    font-weight: 600px;
+}
+/* .camera-sample-heading{
+    width: 50%;
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: var(--apple-pro-font);
+    padding-top: 50px;
+    text-align: center;
+} */
+
+
+
+
+
+
+
+/* =================================
+   Redefined Image Carousel (Variable Width)
+   ================================= */
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 2400px;
+    
+    margin: 50px auto;
+    margin-top: 0px;
+    
+}
+
+ .carousel-heading {
+    width: 100%;
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: var(--apple-pro-font);
+    margin-top: 100px;
+    
+    padding-left: 185px;
+} 
+
+.carousel-container .carousel-wrapper {
+    overflow: hidden;
+    width: 100%;
+    padding-left: 185px; /* <--- ADD THIS */
+    box-sizing: border-box; /* <--- AND ADD THIS */
+}
+
+.carousel-container .carousel-track {
+    
+    display: flex;
+    /* REMOVED gap */
+    transition: transform 0.5s ease-in-out;
+    
+}
+
+.carousel-container .carousel-slide {
+    /* REMOVED flex: 0 0 ... */
+    flex-shrink: 0; /* Prevents slides from shrinking */
+    margin-right: 20px !important; /* This creates the "gap" */
+    box-sizing: border-box;
+    margin-top: 20px !important;
+    
+    /* --- THIS IS WHERE YOU SET THE WIDTHS --- */
+    
+}
+
+/* ---
+   SET YOUR INDIVIDUAL WIDTHS HERE
+   --- */
+.carousel-container .carousel-slide:nth-child(1) {
+    width: 620px;
+    
+}
+.carousel-container .carousel-slide:nth-child(2) {
+    width: 832px;
+}
+.carousel-container .carousel-slide:nth-child(3) {
+    width: 832px;
+}
+.carousel-container .carousel-slide:nth-child(4) {
+    width: 620px;
+}
+.carousel-container.carousel-slide:nth-child(5) {
+    width: 832px;
+}
+/* ---
+   SET YOUR "SAME HEIGHT" HERE
+   --- */
+.carousel-container .carousel-slide img {
+    width: 100%; /* Image fills its new variable-width container */
+    display: block;
+    border-radius: 18px;
+    
+    height: 680px; /* <-- YOUR "SAME HEIGHT" */
+    
+    object-fit: cover; /* Prevents stretching */
+    background-color: #333;
+}
+
+.carousel-container .carousel-slide-content {
+    padding: 10px 5px;
+    font-size: 14px;
+    color: #a1a1a6;
+    
+}
+
+.carousel-container .carousel-slide-content strong {
+    font-size: 1.1em;
+    color: #f5f5f7;
+    display: block;
+    margin-bottom: 5px;
+}
+.carousel-container .carousel-controls {
+    display: flex;
+    justify-content: flex-end; /* Keep buttons aligned right */
+    align-items: center;
+    gap: 15px; 
+    margin-top: 20px; /* Adjusted from 0px */
+     /* Add padding to align buttons with the main container padding */
+    padding-right: 150px; /* Align with right edge if container padding is used */
+}
+.carousel-container .carousel-btn {
+    z-index: 10;
+    background-color: #3C3C3C; 
+    color: white; 
+    border: none;
+    border-radius: 50%; 
+    width: 32px;  
+    height: 32px; 
+    font-size: 18px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+}
+
+
+.carousel-container .carousel-btn:hover:not(:disabled) {
+    background-color: #5A5A5A; 
+    color: white;
+}
+
+.carousel-container .carousel-btn:disabled {
+    opacity: 0.4; 
+    cursor: default;
+    background-color: #2C2C2E; 
+    color: #5A5A5A;
+}
+
+
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    /* On mobile, we make all slides 100% width */
+    .carousel-slide {
+        width: 100%;
+    }
+    .carousel-btn.prev { left: 10px; }
+    .carousel-btn.next { right: 10px; }
+}
+
+.carousel-container .carausel-para {
+    font-family: var(--apple-pro-font);
+    font-size: 18px;
+    text-align: left;
+    max-width: 800px;
+    color: var(--apple-text-grey);
+    
+}
+.carousel-container .carausel-para mark {
+    font-weight: bold;
+    background-color: black;
+    color: white;
+}
+.front-camera-container{
+    margin-top: 200px;
+}
+.first-heading{
+    font-family: var(--apple-pro-font);
+    font-size: 56px;
+    color: rgb(245, 245, 247);
+    display: block;
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
+    font-weight: bolder;
+}
+.first-heading-description{
+    font-family: var(--apple-pro-font);
+    font-size: 21px;
+    color: var(--apple-text-grey);
+    display: block;
+    text-align: center;
+    width: 60%;
+    margin: 20px auto 0 auto;
+    line-height: 29px;
+    font-weight: 600;
+}
+.first-heading-description mark{
+    background-color: black;
+    color: white;
+}
+
+
+
+/* --- 2. Main Widget Containers --- */
+.feature-selector-widget {
+    width: 100%;
+    max-width: 588px;
+    box-sizing: border-box;
+    margin: 40px auto; /* Centers the widget */
+}
+
+.feature-display-area {
+    width: 100%;
+    margin: 0 auto 20px auto;
+    text-align: center;
+}
+
+/* --- 3. Content Visibility --- */
+.feature-content {
+    display: none; 
+}
+.feature-content.is-visible {
+    display: block; 
+}
+
+/* --- 4. Video-in-Frame Container --- */
+.device-container {
+    position: relative; 
+    width: 322px; 
+    height: 662px;
+    margin: 0 auto;
+}
+
+.device-frame {
+    position: relative; 
+    z-index: 2; 
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+}
+
+.device-container video,
+.device-container .device-media {
+    position: absolute; 
+    z-index: 1; 
+    width: 88%;     
+    height: 95%;    
+    top: 2.5%;      
+    left: 6%;       
+    border-radius: 40px; 
+    object-fit: cover; 
+}
+
+/* --- 5. The Toggle Bar (UPDATED) --- */
+.toggle-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; 
+    background-color: #1c1c1e; 
+    border-radius: 16px;
+    padding: 6px;
+    width: 486px;
+    height: 92px;
+    max-width: 486px; 
+    box-sizing: border-box;
+    margin: 20px auto;
+    
+    /* ADDED: This is the canvas for the slider */
+    position: relative; 
+}
+
+/* --- 6. The NEW Slider Element --- */
+.toggle-slider {
+    position: absolute;
+    /* Match the parent's padding */
+    top: 6px; 
+    height: calc(100% - 12px); /* 92px - 6px top - 6px bottom */
+    
+    background-color: #f5f5f7; /* The light background */
+    border-radius: 12px; /* Match the button radius */
+    
+    /* This creates the sliding animation */
+    transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* --- 7. Individual Toggle Buttons (UPDATED) --- */
+.toggle-btn {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: transparent; 
+    border: none;
+    padding: 10px 5px;
+    min-height: 60px;
+    cursor: pointer;
+    color: #8e8e93; 
+    
+    /* UPDATED: Put button text on top of the slider */
+    position: relative;
+    z-index: 2;
+    
+    /* UPDATED: Only transition the text color */
+    transition: color 0.3s ease; 
+}
+
+.toggle-btn .icon {
+    font-size: 1.5rem; 
+    margin-bottom: 5px;
+}
+
+.btn-text {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 0.7rem;
+    line-height: 1.3;
+}
+
+.btn-text strong {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* --- 8. The *Active* Button State (UPDATED) --- */
+.toggle-btn.is-active {
+    /* The background is now handled by .toggle-slider */
+    color: #1c1c1e; /* Dark text/icon for active state */
+    /* Removed background-color, transform, and box-shadow */
+}
+
+/* --- 9. Text Descriptions --- */
+.description-display-area {
+ text-align: center;
+ min-height: 100px;
+ margin: 0 auto;
+}
+.description-content {
+    display: none; 
+}
+.description-content.is-visible {
+    display: block; 
+}
+
+
+.description-content p {
+    width: 650px;
+    
+    margin: 20 auto;;
+    font-size: 21px;
+    font-weight: 600;
+    color: rgb(134,134,139);
+    line-height: 29px;
+    font-family: var(--apple-pro-font);
+    
+}
+
+
+
+
+
+
+
+
+
+/* --- 3. Animation Container --- */
+.scroll-animation-container {
+    /* The height of this container determines the scroll animation's duration.
+       400vh = 4x screen height. Adjust this to make the animation faster or slower. */
+    height: 250vh;
+    position: relative;
+}
+.sticky-boundary {
+    /* Height = 100vh (for the sticky element itself) + scroll distance */
+    /* Adjust 200vh down (e.g., 150vh) to unstick sooner / reduce gap */
+    height: 250vh; 
+    position: relative; /* Needed for positioning context if required */
+}
+
+/* --- 4. The "Sticky Stage" --- */
+.sticky-wrapper {
+    /* This sticks to the top of the screen */
+    position: sticky;
+    top: 0;
+    
+    /* It fills the whole viewport */
+    height: 100vh;
+    width: 100%;
+    
+    /* This is the magic: it stacks all children in the center */
+    display: grid;
+    place-items: center;
+    
+    /* This clips the video as it scales down */
+    overflow: hidden;
+}
+
+/* --- 5. Video & Frame Container --- */
+.video-frame-container {
+    /* This container holds the video and the frame.
+       It's what the JavaScript will scale. */
+    display: grid;
+    place-items: center;
+
+    /* This is the FINAL (small) size of your landscape phone.
+       The JavaScript will scale this up to fill the screen. */
+    width: 70vw; /* 70% of the viewport width */
+    max-width: 900px; /* A max pixel width */
+    aspect-ratio: 16 / 9; /* Landscape aspect ratio */
+}
+
+#scroll-video {
+    /* This stacks it in the same grid cell as the frame */
+    grid-area: 1 / 1;
+    
+    /* This lets us position it precisely */
+    position: absolute; 
+    
+    /* --- TUNE THESE VALUES --- */
+    /* My new guesses based on your screenshot: */
+    width: 106%;  /* A little narrower */
+    height: 91.4%; /* Seems ok */
+    top: 5%;     /* Push it down from the top */
+    left: -3%;    /* Push it left from the right edge */
+    
+    object-fit: cover;
+    border-radius: 60px; /* Your frame has large rounded corners */
+}
+
+#phone-frame {
+    /* This is the phone frame PNG */
+    width: 110%;
+    height: 100%;
+    object-fit: contain;
+    
+    /* Stacks it in the same cell */
+    grid-area: 1 / 1;
+    
+    /* Sits on top of the video */
+    z-index: 10; 
+    
+    /* Starts invisible (JS will fade it in) */
+    opacity: 0;
+}
+
+/* --- 6. Text Overlays --- */
+/* Both text blocks are positioned absolutely to the center of the sticky-wrapper */
+
+.hero-text {
+    position: absolute;
+    z-index: 20; /* On top of everything */
+    text-align: center;
+    
+    /* Starts visible (JS will fade it out) */
+    opacity: 1;
+}
+
+.content-text {
+    /* This is just a normal text block now */
+    font-size: 17px;
+    font-family: var(--apple-pro-font);
+    font-weight: 400;
+    letter-spacing: 0.374px;
+    line-height: 25px;
+    display: block;
+    width: 49%;
+    margin: 0 auto;
+     /* Adds space above and centers it */
+    padding: 0 20px;
+    text-align: center;
+    opacity: 1; /* Make it visible by default */
+    margin-top: -60px;
+}
+
+/* --- 7. Text Styling --- */
+.hero-text h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #a0a0a0;
+}
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.content-text p {
+    font-size: 21px;
+    font-family: var(--apple-pro-font);
+    font-weight: 600;
+    color: #a0a0a0;
+    line-height: 1.5;
+}
+
+.content-text mark{
+    background-color: black;
+    color: white;
+}
+/*starts here*/
+/* =================================
+    Image Carousel (with Side Previews)
+   ================================= */
+
+/* Main container: Clips overflow, adds side padding */
+.carousel-container1 {
+    position: relative; 
+    width: 100%; /* Take full available width */
+    max-width: 2400px; /* Adjust max width if needed */
+    margin: 80px 0px; 
+    overflow: hidden; /* Clips the sides */
+    /* Padding creates the preview area */
+    padding-left: 120px;
+    box-sizing: border-box; 
+}
+
+/* Heading above the carousel */
+.carousel-heading1 {
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: var(--apple-pro-font); 
+    margin: 0 auto 30px auto; 
+    text-align: center;
+    color: #f5f5f7;
+    max-width: 600px;
+} 
+
+/* Wrapper: Allows slides inside to overflow */
+.carousel-wrapper1 {
+    overflow: visible; /* CHANGED: Let slides peek out */
+    width: 100%;
+    margin-bottom: 20px; 
+}
+
+/* Track: Holds the slides in a row */
+.carousel-track1 {
+    display: flex;
+    align-items: flex-start; /* Align slides to top */
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Individual slides */
+.carousel-slide1 {
+    flex-shrink: 0; 
+    margin-right: 20px; /* Gap */
+    box-sizing: border-box;
+    /* Width now defines the size of the MAIN CENTER slide */
+    width: 100%; /* Slide takes full width between padding */
+    /* Keep your nth-child rules for variable widths if needed */
+}
+
+/* Styling for images within slides */
+.carousel-slide1 img {
+    width: 100%;
+    display: block;
+    border-radius: 18px; 
+    height: 680px; /* Maintain consistent height */
+    object-fit: cover; 
+    background-color: #333; 
+}
+
+/* Your existing :nth-child width overrides will still apply if present */
+.carousel-slide1:nth-child(1) { width: 620px; }
+.carousel-slide1:nth-child(2) { width: 832px; }
+.carousel-slide1:nth-child(3) { width: 1260px; }
+.carousel-slide1:nth-child(4) { width: 832px; }
+/* Add slide 5 if it exists */
+/* .carousel-slide1:nth-child(5) { width: ...; } */
+
+
+/* Content (text) below each image */
+.carousel-slide-content1 {
+    padding: 15px 5px 0px 5px;
+}
+
+.carousel-para1 { 
+    
+    margin-top: 13.6px;
+    font-family: var(--apple-pro-font);
+    font-size: 17px; 
+    text-align: left;
+    color: var(--apple-text-grey); 
+    line-height: 21.0012px;
+    display: inline;
+    font-weight: 600;
+    letter-spacing: -0.374;
+}
+
+.carousel-para1 mark {
+    font-family: var(--apple-pro-font);
+    background-color: transparent;
+    color: white;
+}
+
+/* --- Button Container --- */
+.carousel-controls1 {
+    display: flex;
+    justify-content: flex-end; /* Keep buttons aligned right */
+    align-items: center;
+    gap: 15px; 
+    margin-top: 20px; /* Adjusted from 0px */
+     /* Add padding to align buttons with the main container padding */
+    padding-right: 150px; /* Align with right edge if container padding is used */
+}
+
+/* Styling for the buttons (Circular) */
+.carousel-btn1 {
+    z-index: 10;
+    background-color: #3C3C3C; 
+    color: white; 
+    border: none;
+    border-radius: 50%; 
+    width: 32px;  
+    height: 32px; 
+    font-size: 18px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+}
+
+.carousel-btn1:hover:not(:disabled) {
+    background-color: #5A5A5A; 
+    color: white;
+}
+
+.carousel-btn1:disabled {
+    opacity: 0.4; 
+    cursor: default;
+    background-color: #2C2C2E; 
+    color: #5A5A5A;
+}
+
+.space{
+    height: 10vh;
+}
+.performance-heading-main{
+    display: block;
+    color: rgb(255, 121, 27);
+    font-size: 24px;
+    font-family: var(--apple-pro-font);
+    font-weight: 600;
+    text-align: center;
+}
+.performance-bold-heading{
+    display: block;
+    color: rgb(245, 245, 247);
+    font-family: var(--apple-pro-font);
+    font-size: 80px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 84px;
+    margin: 16px auto 0px auto;
+    width: 45%
+}
+.performane-desc{
+    color:rgb(134,134,139);
+    display: block;
+    font-family: var(--apple-pro-font);
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: 0.231px;
+    line-height: 29.001px;
+    margin: 24px auto 0px auto;
+    text-align: center;
+    width: 58%;
+
+}
+.performane-desc mark{
+    color: white;
+    background-color: #000;
+    
+}
+
+.performance-img {
+    display: block; /* Removes extra space below image */
+    width: 100%; /* Makes image responsive */
+    max-width: 2400px; /* Example max width */
+    height: auto; /* Maintain aspect ratio */
+    margin:  0px; /* Center the image */
+    /* transform: scale(1.5); */
+}
+.performance-specs{
+    margin-top: 70px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+   
+}
+.performance-specs1{
+    width: 393px;
+    height: 177px;
+    margin: 50px 20px;
+}
+.performance-specs2{
+    width: 393px;
+    height: 177px;
+    margin: 50px 20px;
+}
+.performance-specs3{
+    width: 393px;
+    height: 177px;
+    margin: 50px 20px;
+}
+.performance-heading{
+    display: block;
+    font-family: var(--apple-pro-font);
+    font-size: 22px;
+    font-weight: 600;
+    padding-bottom: 15px;
+    
+    border-bottom: solid 1px var(--apple-text-grey);
+    text-align: left;
+    color: white;
+}
+.performance-body{
+    font-size: 20px;
+    font-family: var(--apple-pro-font);
+    color: var(--apple-text-grey);
+    padding-top: 15px;
+    font-weight: 400px;
+    line-height: 30px;
+}
+
+/* Container for image and text */
+.battery-section {
+    margin-top: 500px;
+    position: relative; /* Crucial for positioning the overlay */
+    width: 100%;        /* Or desired width */
+     
+    margin: 40px auto;  /* Center the section */
+}
+
+/* The Image */
+#battery-img {
+    transform: scale(1.6);
+    margin-top: 350px;
+    display: block;     /* Correct display type */
+    width: 100%;        /* Make image fill container width */
+    height: auto;       /* Maintain aspect ratio */
+    /* Add border-radius if you want rounded corners */
+    /* border-radius: 18px; */
+}
+
+/* The Text Overlay */
+.battery-text-overlay {
+    position: absolute; /* Position relative to .battery-section */
+    top: 0px;           /* Vertically center */
+    left: 9%;           /* Indent from left */
+    transform: translateY(-50%); /* Fine-tune vertical centering */
+    color: white;       /* Text color */
+    z-index: 10;        /* Ensure text is above image */
+    text-align: left;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Optional shadow for readability */
+}
+
+.battery-text-overlay h2 {
+    padding: 0px;
+    color: rgb(245,245,247);
+    display: block;
+    font-family: var(--apple-pro-font);
+    font-size: 56px;
+    font-weight: 600;
+    letter-spacing: -0.26px;
+    line-height: 60px;
+    width: 400px;
+   
+}
+
+.battery-text-overlay p {
+    font-size: 21px; /* Adjust size */
+    line-height: 1.5;
+    color:rgb(134,134,139); /* Slightly off-white */
+    font-family: var(--apple-pro-font);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 29.001px;
+    margin-top: 16.8px;
+    width: 555px;
+}
+.battery-text-overlay p mark{
+    color: white;
+    background-color: transparent;
+}
+
+/* Media query example for smaller screens */
+@media (max-width: 768px) {
+    .battery-text-overlay {
+        top: auto; /* Position from bottom instead */
+        bottom: 10%;
+        left: 50%;
+        transform: translateX(-50%); /* Center horizontally */
+        max-width: 85%;
+        text-align: center;
+    }
+    .battery-text-overlay h2 {
+        font-size: 1.8rem;
+    }
+    .battery-text-overlay p {
+        font-size: 1rem;
+    }
+}
+
+.battery-specs-container{
+    display: block;
+    margin-top: 200px;
+    width: 80%;
+    height: auto;
+    display: flex;
+    margin: 250px auto 0px auto;
+    padding-left: 150px;
+    gap: 20px;
+    
+}
+.battery-specs-1{
+    height: 139.400px;
+    width: 230.500px;
+    
+}
+.battery-specs-2{
+    height: 139.400px;
+    width: 230.500px;
+   
+   
+}
+.battery-specs-3{
+    height: 139.400px;
+    width: 230.500px;
+    
+    
+}
+.battery-specs-container p{
+    width: 80%;
+    height: auto;
+    display: block;
+    color: rgb(134,134,139);
+    font-size: 17px;
+    font-family: var(--apple-pro-font);
+    font-weight: 600;
+    line-height: 25px;
+    letter-spacing: -0.374px;
+}
+.battery-specs-container mark{
+    background: transparent;
+    color: rgb(255,121,27);
+    display: block;
+    
+    font-size: 28px;
+    font-family: var(--apple-pro-font);
+    font-weight: strong;
+    letter-spacing: 0.198px;
+    line-height: 32px;
+    width: 100%;
+}
+
+.space2{
+    height: 25vh;
+}
+.os-main-header{
+    color: rgb(255,121,27);
+    display: block;
+    font-family: var(--apple-pro-font);
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.216px;
+    line-height: 28px;
+    text-align: center;
+}
+.os-bold-header{
+    color: rgb(245, 245, 247);
+    width: 50%;
+    display: block;
+    font-family: var(--apple-pro-font);
+    font-size: 80px;
+    font-weight: 600;
+    letter-spacing: -1.2px;
+    line-height: 84px;
+    margin: 16px auto 0px auto;
+    text-align: center;
+}
+
+.os-img{
+    display: block;
+    margin: -40px auto;
+    transform: scale(0.8);
+}
+.os-desc{
+    color: rgb(134,134,139);
+    display: block;
+    font-family: var(--apple-pro-font);
+    font-size: 21px;
+    font-weight:600 ;
+    letter-spacing: 0.231px;
+    line-height: 29.001px;
+    margin: 0 auto;
+    text-align: center;
+    width: 53%;
+
+}
+.os-desc mark{
+    color: white;
+    background: transparent;
+}
+
+.os-carousel-heeading-container{
+    color: rgb(245, 245, 247);
+    display: block;
+    font-family: var(--apple-pro-font);
+    font-size: 32px;
+    font-weight:600 ;
+    letter-spacing: 0.128px;
+    line-height: 36px;
+    max-width: 75%;
+    min-width: 50%;
+    margin-left: 150px;
+}
+
+
+.carousel-container3 {
+    position: relative; 
+    width: 100%; /* Take full available width */
+    max-width: 2400px; /* Adjust max width if needed */
+    margin: 80px 0px; 
+    overflow: hidden; /* Clips the sides */
+    /* Padding creates the preview area */
+    padding-left: 120px;
+    box-sizing: border-box; 
+}
+
+/* Heading above the carousel */
+.carousel-heading3 {
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: var(--apple-pro-font); 
+    margin: 0 auto 30px auto; 
+    text-align: center;
+    color: #f5f5f7;
+    max-width: 600px;
+} 
+
+/* Wrapper: Allows slides inside to overflow */
+.carousel-wrapper3 {
+    overflow: visible; /* CHANGED: Let slides peek out */
+    width: 100%;
+    margin-bottom: 20px; 
+}
+
+/* Track: Holds the slides in a row */
+.carousel-track3 {
+    display: flex;
+    align-items: flex-start; /* Align slides to top */
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Individual slides */
+.carousel-slide3 {
+    width: 372px;
+    flex-shrink: 0; 
+    margin-right: 20px; /* Gap */
+    box-sizing: border-box;
+    /* Width now defines the size of the MAIN CENTER slide */
+     /* Slide takes full width between padding */
+    /* Keep your nth-child rules for variable widths if needed */
+    
+}
+
+/* Styling for images within slides */
+.carousel-slide3 img {
+    width: 100%;
+    display: block;
+    border-radius: 18px; 
+    height: 450px; /* Maintain consistent height */
+    object-fit: cover; 
+    background-color: #333; 
+}
+
+
+
+
+/* Content (text) below each image */
+.carousel-slide-content3 {
+    text-align: left;
+    padding: 15px 5px 0px 5px;
+}
+
+.carousel-para3 { 
+    
+    margin-top: 13.6px;
+    font-family: var(--apple-pro-font);
+    font-size: 17px; 
+    display: block;
+    color: var(--apple-text-grey); 
+    line-height: 21.0012px;
+    font-weight: 600;
+    letter-spacing: -0.374;
+}
+
+.carousel-para3 mark {
+    font-family: var(--apple-pro-font);
+    background-color: transparent;
+    color: white;
+}
+
+/* --- Button Container --- */
+.carousel-controls3 {
+    display: flex;
+    justify-content: flex-end; /* Keep buttons aligned right */
+    align-items: center;
+    gap: 15px; 
+    margin-top: 20px; /* Adjusted from 0px */
+     /* Add padding to align buttons with the main container padding */
+    padding-right: 150px; /* Align with right edge if container padding is used */
+}
+
+/* Styling for the buttons (Circular) */
+.carousel-btn3 {
+    z-index: 10;
+    background-color: #3C3C3C; 
+    color: white; 
+    border: none;
+    border-radius: 50%; 
+    width: 32px;  
+    height: 32px; 
+    font-size: 18px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+}
+
+.carousel-btn3:hover:not(:disabled) {
+    background-color: #5A5A5A; 
+    color: white;
+}
+
+.carousel-btn3:disabled {
+    opacity: 0.4; 
+    cursor: default;
+    background-color: #2C2C2E; 
+    color: #5A5A5A;
+}
+
+.apple-intelligence-carousel-heeading-container{
+    color: rgb(245, 245, 247);
+    display: block;
+    font-family: var(--apple-pro-font);
+    font-size: 32px;
+    font-weight:600 ;
+    letter-spacing: 0.128px;
+    line-height: 36px;
+    max-width: 75%;
+    min-width: 50%;
+    margin-left: 150px;
+}
+
+
+.carousel-container4 {
+    position: relative; 
+    width: 100%; /* Take full available width */
+    max-width: 2400px; /* Adjust max width if needed */
+    margin: 40px 0px; 
+    overflow: hidden; /* Clips the sides */
+    /* Padding creates the preview area */
+    padding-left: 120px;
+    box-sizing: border-box; 
+}
+
+/* Heading above the carousel */
+.carousel-heading4 {
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: var(--apple-pro-font); 
+    margin: 0 auto 30px auto; 
+    text-align: center;
+    color: #f5f5f7;
+    max-width: 600px;
+} 
+
+/* Wrapper: Allows slides inside to overflow */
+.carousel-wrapper4 {
+    overflow: visible; /* CHANGED: Let slides peek out */
+    width: 100%;
+    margin-bottom: 20px; 
+}
+
+/* Track: Holds the slides in a row */
+.carousel-track4 {
+    display: flex;
+    align-items: flex-start; /* Align slides to top */
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Individual slides */
+.carousel-slide4 {
+    flex-shrink: 0; 
+    margin-right: 20px; /* Gap */
+    box-sizing: border-box;
+    width: 372px; /* Set the slide width here */
+}
+
+/* Styling for images within slides */
+.carousel-slide4 img {
+    width: 100%; /* Image fills the 372px slide */
+    display: block;
+    border-radius: 18px; 
+    height: 450px; /* Maintain consistent height */
+    object-fit: cover; 
+    background-color: #333; 
+}
+.carousel-slide4:nth-child(3) {
+    width: 696px; /* Set your new, different width here */
+}
+/* Content (text) below each image */
+.carousel-slide-content4 {
+    text-align: left;
+    padding: 15px 5px 0px 5px;
+}
+
+.carousel-para4 { 
+    margin-top: 13.6px;
+    font-family: var(--apple-pro-font);
+    font-size: 17px; 
+    display: block;
+    color: var(--apple-text-grey); 
+    line-height: 21.0012px;
+    font-weight: 600;
+    letter-spacing: -0.374;
+}
+
+.carousel-para4 mark {
+    font-family: var(--apple-pro-font);
+    background-color: transparent;
+    color: white;
+}
+
+/* --- Button Container --- */
+.carousel-controls4 {
+    display: flex;
+    justify-content: flex-end; /* Keep buttons aligned right */
+    align-items: center;
+    gap: 15px; 
+    margin-top: 20px; /* Adjusted from 0px */
+    /* Add padding to align buttons with the main container padding */
+    padding-right: 150px; /* Align with right edge if container padding is used */
+}
+
+/* Styling for the buttons (Circular) */
+.carousel-btn4 {
+    z-index: 10;
+    background-color: #3C3C3C; 
+    color: white; 
+    border: none;
+    border-radius: 50%; 
+    width: 32px;  
+    height: 32px; 
+    font-size: 18px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+}
+
+.carousel-btn4:hover:not(:disabled) {
+    background-color: #5A5A5A; 
+    color: white;
+}
+
+.carousel-btn4:disabled {
+    opacity: 0.4; 
+    cursor: default;
+    background-color: #2C2C2E; 
+    color: #5A5A5A;
+}
+.emergency-carousel-heeading-container{
+    color: rgb(245, 245, 247);
+    display: block;
+    font-family: var(--apple-pro-font);
+    font-size: 32px;
+    font-weight:600 ;
+    letter-spacing: 0.128px;
+    line-height: 36px;
+    max-width: 75%;
+    min-width: 50%;
+    margin-left: 150px;
+}
+
+.carousel-container5 {
+    position: relative; 
+    width: 100%; /* Take full available width */
+    max-width: 2400px; /* Adjust max width if needed */
+    margin: 40px 0px; 
+    overflow: hidden; /* Clips the sides */
+    /* Padding creates the preview area */
+    padding-left: 120px;
+    box-sizing: border-box; 
+}
+
+/* Heading above the carousel */
+.carousel-heading5 {
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: var(--apple-pro-font); 
+    margin: 0 auto 30px auto; 
+    text-align: center;
+    color: #f5f5f7;
+    max-width: 600px;
+} 
+
+/* Wrapper: Allows slides inside to overflow */
+.carousel-wrapper5 {
+    overflow: visible; /* CHANGED: Let slides peek out */
+    width: 100%;
+    margin-bottom: 20px; 
+}
+
+/* Track: Holds the slides in a row */
+.carousel-track5 {
+    display: flex;
+    align-items: flex-start; /* Align slides to top */
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Individual slides */
+.carousel-slide5 {
+    flex-shrink: 0; 
+    margin-right: 20px; /* Gap */
+    box-sizing: border-box;
+    width: 372px; /* This is the DEFAULT width for all slides */
+}
+
+/* --- Unique width for the 3rd slide --- */
+.carousel-slide5:nth-child(3) {
+    width: 696px; /* This is the UNIQUE width for slide 3 */
+}
+
+/* Styling for images within slides */
+.carousel-slide5 img {
+    width: 100%; /* Image fills its parent slide's width */
+    display: block;
+    border-radius: 18px; 
+    height: 450px; /* Maintain consistent height */
+    object-fit: cover; 
+    background-color: #333; 
+}
+
+/* Content (text) below each image */
+.carousel-slide-content5 {
+    text-align: left;
+    padding: 15px 5px 0px 5px;
+}
+
+.carousel-para5 { 
+    margin-top: 13.6px;
+    font-family: var(--apple-pro-font);
+    font-size: 17px; 
+    display: block;
+    color: var(--apple-text-grey); 
+    line-height: 21.0012px;
+    font-weight: 600;
+    letter-spacing: -0.374;
+}
+
+.carousel-para5 mark {
+    font-family: var(--apple-pro-font);
+    background-color: transparent;
+    color: white;
+}
+
+/* --- Button Container --- */
+.carousel-controls5 {
+    display: flex;
+    justify-content: flex-end; /* Keep buttons aligned right */
+    align-items: center;
+    gap: 15px; 
+    margin-top: 20px; /* Adjusted from 0px */
+    /* Add padding to align buttons with the main container padding */
+    padding-right: 150px; /* Align with right edge if container padding is used */
+}
+
+/* Styling for the buttons (Circular) */
+.carousel-btn5 {
+    z-index: 10;
+    background-color: #3C3C3C; 
+    color: white; 
+    border: none;
+    border-radius: 50%; 
+    width: 32px;  
+    height: 32px; 
+    font-size: 18px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+}
+
+.carousel-btn5:hover:not(:disabled) {
+    background-color: #5A5A5A; 
+    color: white;
+}
+
+.carousel-btn5:disabled {
+    opacity: 0.4; 
+    cursor: default;
+    background-color: #2C2C2E; 
+    color: #5A5A5A;
+}
+/* starts here */
+.specs-overview-container{
+    width: 1260px;
+    height: 1000px;
+    padding:80px 105px 50px 105px;
+    margin:0 auto;
+    background-color:rgb(29,29,31);
+    border-radius: 30px;
+  
+}
+.specs-overview-heading{
+    display: block;
+    width: 630px;
+    font-family: var(--apple-pro-font);
+    font-size: 56px;
+    font-weight: 600;
+    letter-spacing: -0.28px;
+    line-height: 60px;
+    margin-bottom: 42px;
+}
+.specs-overview-text{
+    color: rgb(134,134,139);
+    display: block;
+    font-family: var(--apple-pro-font);
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: 0.231px;
+    line-height: 25px;
+
+}
+.specs-overview-text mark{
+    color: white;
+    background: transparent;
+}
+.overview-box{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    
+    gap: 20px;
+    
+}
+.box{
+    height: 300px;
+    width: 336px;
+    background-color: black;
+    
+    border-radius: 30px;
+}
+#spec1 p{
+    color: rgb(134,134,139);
+    display: block;
+    width: 60%;
+    font-family: var(--apple-pro-font);
+    font-size: 21px;
+    letter-spacing: 0.231px;
+    line-height: 25px;
+    padding-top: 30px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+}
+.box #image1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    height: 220px;
+    width: 276px;
+    background-image: url("design__gca3y6btjtaq_large.jpg");
+    margin: 0 auto;
+    background-size: contain;
+    background-position-x:50%;
+    background-position-y:50%;
+}
+#spec2 #para1{
+    color: rgb(134,134,139);
+    display: block;
+    width: 100%;
+    font-family: var(--apple-pro-font);
+    font-size: 21px;
+    letter-spacing: 0.231px;
+    line-height: 25px;
+    padding-top: 45px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+#spec2 #para2{
+    width: 65%;
+    margin: 0 auto;
+    color: rgb(245,245,247);
+    display: block;
+    font-size: 48px;
+    text-align: center;
+    letter-spacing: -0.144px;
+    line-height: 52px;
+    font-weight: bold;
+}
+#spec2 #para3{
+    color: rgb(134,134,139);
+    display: block;
+    width: 65%;
+    font-family: var(--apple-pro-font);
+    font-size: 21px;
+    letter-spacing: 0.231px;
+    line-height: 25px;
+    margin: 12px auto;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 0px;
+    
+}
+#spec2 #para4{
+    color: rgb(134,134,139);
+    display: block;
+    width: 70%;
+    font-family: var(--apple-pro-font);
+    font-size: 21px;
+    letter-spacing: 0.231px;
+    line-height: 25px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+}
+#spec3 #para1{
+    color: rgb(134,134,139);
+    display: block;
+    width: 80%;
+    font-family: var(--apple-pro-font);
+    font-size: 21px;
+    letter-spacing: 0.231px;
+    line-height: 25px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 30px;
+}
+.box #image2{
+    display: block;
+    width: 100%;
+    margin: 30px 0;
+    background-position-y: 50%;    
+    background-position-x: 50%;   
+}
+#spec4 #para1{
+    color: rgb(134,134,139);
+    display: block;
+    width: 100%;
+    font-family: var(--apple-pro-font);
+    font-size: 21px;
+    letter-spacing: 0.231px;
+    line-height: 25px;
+    padding-top: 45px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+#spec4 #para2{
+    color: rgb(245,245,247);
+    display: block;
+    width: 100%;
+    font-family: var(--apple-pro-font);
+    font-size: 48px;
+    letter-spacing: -0.144px;
+    line-height:52.007px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+}
+#spec4 #para3{
+    color: rgb(245,245,247);
+    display: block;
+    width: 100%;
+    font-family: var(--apple-pro-font);
+    font-size: 48px;
+    letter-spacing: -0.144px;
+    line-height:52.007px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+#spec4 #para4{
+    color: rgb(134,134,139);
+    display: block;
+    width: 100%;
+    font-family: var(--apple-pro-font);
+    font-size: 21px;
+    letter-spacing: 0.231px;
+    line-height: 25px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+.box {
+    overflow: hidden;
+}
+#spec5 #para1{
+    color: rgb(134,134,139);
+    display: block;
+    width: 70%;
+    font-family: var(--apple-pro-font);
+    font-size: 21px;
+    letter-spacing: 0.231px;
+    line-height: 25px;
+    padding-top: 40px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+#spec5 img{
+    display: block;
+    margin: 0 auto;
+}
+#spec6{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+#spec6 div{
+    height: 60%;
+}
+.box img{
+    display: block;
+    margin:0 auto;
+}
+#spec6 #para1{
+    color: rgb(134,134,139);
+    display: block;
+    width: 70%;
+    font-family: var(--apple-pro-font);
+    font-size: 21px;
+    letter-spacing: 0.231px;
+    line-height: 25px;
+    padding-top: 10px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+    
+}
+#spec6 #para2{
+    color: rgb(134,134,139);
+    display: block;
+    width: 100%;
+    font-family: var(--apple-pro-font);
+    font-size: 21px;
+    letter-spacing: 0.231px;
+    line-height: 25px;
+    
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+/* ends here */

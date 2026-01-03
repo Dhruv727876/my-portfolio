@@ -1,0 +1,25 @@
+/* style.css */
+
+/* Custom Glow Effects */
+.text-glow {
+    text-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+}
+
+.box-glow:hover {
+    box-shadow: 0 0 30px rgba(188, 19, 254, 0.2);
+}
+
+.hero-glow {
+    background: radial-gradient(
+        circle at center,
+        rgba(0, 243, 255, 0.15) 0%,
+        rgba(5, 5, 5, 0) 70%
+    );
+}
+
+/* Background Grid Pattern */
+.bg-grid-pattern {
+    background-size: 50px 50px;
+    background-image: linear-gradient(to right, #333 1px, transparent 1px),
+                      linear-gradient(to bottom, #333 1px, transparent 1px);
+}
