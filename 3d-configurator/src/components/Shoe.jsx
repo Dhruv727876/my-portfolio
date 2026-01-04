@@ -1,12 +1,18 @@
 import { useGLTF } from '@react-three/drei'
 import { useStore } from '../store/useStore'
 
+// 1. IMPORT THE FILE DIRECTLY
+// Adding '?url' tells Vite to treat this as a link to a file
+import shoeUrl from '../shoe-draco.glb?url'
+
 export default function Shoe() {
-  const { nodes, materials } = useGLTF('./shoe-draco.glb')
+  // 2. USE THE VARIABLE INSTEAD OF A STRING
+  const { nodes, materials } = useGLTF(shoeUrl)
   const colors = useStore((state) => state.colors)
 
   return (
     <group dispose={null} scale={3} position={[0, -1, 0]}>
+      {/* ... keep the rest of your mesh code exactly the same ... */}
       {/* 1. Laces */}
       <mesh 
         geometry={nodes.shoe.geometry} 
