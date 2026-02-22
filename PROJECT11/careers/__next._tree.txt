@@ -1,4 +1,4 @@
 :HL["/my-portfolio/PROJECT11/_next/static/chunks/4434d78c1ebb6433.css","style"]
 :HL["https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap","style"]
 :HL["https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1400&q=80","image"]
-0:{"buildId":"aR93lphB6zjijyj9i_Fq3","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"careers","paramType":null,"paramKey":"careers","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"eWAVk-WyNDNBwqunwsvrh","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"careers","paramType":null,"paramKey":"careers","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
