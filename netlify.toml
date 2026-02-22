@@ -1,3 +1,5 @@
+# Place this file at your PORTFOLIO ROOT: D:\portfolio\netlify.toml
+
 [build]
   publish = "."
 
