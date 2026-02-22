@@ -1,9 +1,0 @@
-User-Agent: *
-Allow: /
-Disallow: /checkout
-Disallow: /cart
-Disallow: /account
-Disallow: /account/
-Disallow: /api/
-
-Sitemap: https://drip.style/sitemap.xml
