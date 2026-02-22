@@ -1,3 +1,0 @@
-# Netlify Redirects
-# Handle direct navigation to DRIP subpages
-/PROJECT11/*  /PROJECT11/:splat  200
