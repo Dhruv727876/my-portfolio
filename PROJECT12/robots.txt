@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /account/
+Disallow: /api/
+
+Sitemap: https://elyx.ai/sitemap.xml
