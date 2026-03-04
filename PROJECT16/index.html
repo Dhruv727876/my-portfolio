@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PearlCrest Dental Studio | Premium Cosmetic & Family Dentistry</title>
+  <meta name="description"
+    content="PearlCrest Dental Studio offers world-class cosmetic dentistry, implants, smile makeovers, and family dental care. Book your appointment today.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="PearlCrest Dental Studio | Premium Cosmetic & Family Dentistry">
+  <meta property="og:description"
+    content="World-class cosmetic dentistry, implants, and smile makeovers. Book your appointment today.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/webp" href="images/logo.webp">
+
+  <!-- Performance Verification & Resource Hints -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+  <!-- Font loading optimization -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap">
+  </noscript>
+  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <script
+    type="application/ld+json">{"@context":"https://schema.org","@type":"Dentist","name":"PearlCrest Dental Studio","description":"Premium cosmetic and family dentistry clinic in Mumbai.","address":{"@type":"PostalAddress","streetAddress":"42 Prestige Boulevard, Riverside Tower, 3rd Floor","addressLocality":"Mumbai","addressRegion":"MH","postalCode":"400001","addressCountry":"IN"},"telephone":"+91 22 4000 1234","email":"hello@pearlcrestdental.com","url":"https://pearlcrestdental.com","geo":{"@type":"GeoCoordinates","latitude":"18.9388","longitude":"72.8311"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"19:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"16:00"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Dental Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Teeth Whitening"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Dental Implants"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Smile Makeover"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Root Canal Treatment"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Invisalign Braces"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Pediatric Dentistry"}}]},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"527"}}</script>
+</head>
+
+<body>
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-content">
+      <div class="preloader-logo">
+        <img src="images/logo.webp" alt="PearlCrest" width="60" height="60">
+        <div class="preloader-title">PearlCrest</div>
+      </div>
+      <div class="preloader-bar">
+        <div class="preloader-progress" id="preloaderProgress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skip to content (Accessibility) -->
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+  <!-- NAVIGATION — synced with page section order -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="#home" class="nav-logo" aria-label="PearlCrest Home">
+        <img src="images/logo.webp" alt="PearlCrest logo" width="42" height="42">
+        <div class="nav-logo-text"><span class="nav-logo-name">PearlCrest</span><span class="nav-logo-tag">Dental
+            Studio</span></div>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#home" class="active">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#team">Our Team</a>
+        <a href="#gallery">Smile Gallery</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="#booking" class="btn btn-primary nav-cta">Book Appointment</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu"
+        aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="mobileNav" aria-hidden="true">
+    <a href="#home">Home</a><a href="#services">Services</a><a href="#about">About</a><a href="#team">Our Team</a><a
+      href="#gallery">Smile Gallery</a><a href="#testimonials">Testimonials</a><a href="#contact">Contact</a>
+    <a href="#booking" class="btn btn-primary btn-large">Book Appointment</a>
+  </div>
+
+  <main id="main-content">
+    <!-- HERO -->
+    <section class="hero section-padding" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            </svg>
+            Rated 4.9/5 by 500+ patients
+          </div>
+          <h1 class="hero-title">Your Smile Deserves<br><span class="highlight">World-Class</span> Care</h1>
+          <p class="hero-subtitle">At PearlCrest Dental Studio, we combine cutting-edge technology with compassionate
+            care to give you the confident, radiant smile you've always wanted.</p>
+          <div class="hero-actions">
+            <a href="#booking" class="btn btn-primary btn-large"><svg width="18" height="18" fill="none"
+                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>Book Appointment</a>
+            <a href="tel:+912240001234" class="btn btn-secondary btn-large"><svg width="18" height="18" fill="none"
+                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path
+                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+              </svg>Call Now</a>
+          </div>
+          <div class="hero-trust">
+            <div class="hero-trust-item">
+              <div class="hero-trust-icon"><svg width="20" height="20" fill="none" stroke="currentColor"
+                  stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg></div>
+              <div class="hero-trust-text"><strong data-count="10" data-suffix="+">10+</strong><span>Years
+                  Experience</span></div>
+            </div>
+            <div class="hero-trust-item">
+              <div class="hero-trust-icon"><svg width="20" height="20" fill="none" stroke="currentColor"
+                  stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 00-3-3.87" />
+                  <path d="M16 3.13a4 4 0 010 7.75" />
+                </svg></div>
+              <div class="hero-trust-text"><strong data-count="5000" data-suffix="+">5,000+</strong><span>Happy
+                  Patients</span></div>
+            </div>
+            <div class="hero-trust-item">
+              <div class="hero-trust-icon"><svg width="20" height="20" fill="none" stroke="currentColor"
+                  stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg></div>
+              <div class="hero-trust-text"><strong>Certified</strong><span>Dental Specialists</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image" data-parallax="0.05">
+          <div class="hero-image-wrapper img-skeleton">
+            <img src="images/hero-dentist.webp" alt="Modern PearlCrest clinic with friendly dentist" width="600"
+              height="750" loading="eager">
+          </div>
+          <div class="hero-float-card card-1">
+            <div class="card-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg></div>
+            <div class="card-text"><strong>100% Sterilized</strong><span>Hospital-grade hygiene</span></div>
+          </div>
+          <div class="hero-float-card card-2">
+            <div class="card-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg></div>
+            <div class="card-text"><strong>Top Rated Clinic</strong><span>4.9★ on Google</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER — Curve Down -->
+    <div class="section-divider divider-curve-down">
+      <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
+        <path d="M0 0C240 80 480 120 720 120C960 120 1200 80 1440 0V120H0V0Z" fill="#f8fafb" />
+      </svg>
+    </div>
+
+    <!-- SERVICES with ₹ pricing -->
+    <section class="services section-padding" id="services">
+      <div class="container">
+        <div class="section-header reveal"><span class="section-badge">Our Services</span>
+          <h2 class="section-title reveal-text">Comprehensive Dental Care<br>Tailored to You</h2>
+          <p class="section-subtitle">From preventive care to advanced cosmetic procedures, we offer a full spectrum
+            of
+            dental services.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card reveal reveal-delay-1">
+            <div class="service-icon"><svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"
+                viewBox="0 0 24 24">
+                <path
+                  d="M12 3c-1.5 0-2.5.5-3.5 1.5S7 6.5 6.5 8c-.5 1.5-.5 3 0 5s1.5 4 2 5.5.5 3 .5 3.5 1 1 1.5 1 1.5-.5 1.5-1 0-2 .5-3.5S13.5 15 14 13.5s1-3.5.5-5S13.5 6 12.5 4.5 13.5 3 12 3z" />
+              </svg></div>
+            <h3>Teeth Whitening</h3><span class="service-price">From ₹8,999</span>
+            <p>Professional in-office whitening treatments that deliver a brilliantly brighter smile in just one
+              visit.
+            </p><a href="#booking" class="service-link">Learn More →</a>
+          </div>
+          <div class="service-card reveal reveal-delay-2">
+            <div class="service-icon"><svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"
+                viewBox="0 0 24 24">
+                <rect x="9" y="2" width="6" height="8" rx="1" />
+                <path d="M12 10v4" />
+                <path d="M9 14h6" />
+                <path d="M10 14l-1 8h6l-1-8" />
+              </svg></div>
+            <h3>Dental Implants</h3><span class="service-price">From ₹25,000</span>
+            <p>Permanent, natural-looking tooth replacements using cutting-edge implant technology.</p><a
+              href="#booking" class="service-link">Learn More →</a>
+          </div>
+          <div class="service-card reveal reveal-delay-3">
+            <div class="service-icon"><svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"
+                viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                <line x1="9" y1="9" x2="9.01" y2="9" />
+                <line x1="15" y1="9" x2="15.01" y2="9" />
+              </svg></div>
+            <h3>Smile Makeover</h3><span class="service-price">From ₹50,000</span>
+            <p>Comprehensive aesthetic transformation combining veneers, whitening, and alignment.</p><a href="#booking"
+              class="service-link">Learn More →</a>
+          </div>
+          <div class="service-card reveal reveal-delay-1">
+            <div class="service-icon"><svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"
+                viewBox="0 0 24 24">
+                <path d="M12 22c-4 0-8-2-8-6V8c0-3.3 3.6-6 8-6s8 2.7 8 6v8c0 4-4 6-8 6z" />
+                <path d="M12 6v10" />
+                <path d="M8 10l4 2 4-2" />
+              </svg></div>
+            <h3>Root Canal Treatment</h3><span class="service-price">From ₹5,000</span>
+            <p>Pain-free modern endodontic treatment to save damaged teeth and eliminate infection.</p><a
+              href="#booking" class="service-link">Learn More →</a>
+          </div>
+          <div class="service-card reveal reveal-delay-2">
+            <div class="service-icon"><svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"
+                viewBox="0 0 24 24">
+                <rect x="3" y="8" width="18" height="8" rx="4" />
+                <circle cx="8" cy="12" r="1.5" />
+                <circle cx="12" cy="12" r="1.5" />
+                <circle cx="16" cy="12" r="1.5" />
+              </svg></div>
+            <h3>Braces & Aligners</h3><span class="service-price">From ₹30,000</span>
+            <p>Invisible aligners and modern braces — discreet options available for adults.</p><a href="#booking"
+              class="service-link">Learn More →</a>
+          </div>
+          <div class="service-card reveal reveal-delay-3">
+            <div class="service-icon"><svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"
+                viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M9 12h6" />
+                <path d="M12 9v6" />
+              </svg></div>
+            <h3>Pediatric Dentistry</h3><span class="service-price">From ₹1,500</span>
+            <p>Gentle, child-friendly dental care in a warm environment that makes every visit fun.</p><a
+              href="#booking" class="service-link">Learn More →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER — Wave -->
+    <div class="section-divider divider-wave">
+      <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
+        <path
+          d="M0 60C120 20 240 100 360 100C480 100 600 20 720 20C840 20 960 100 1080 100C1200 100 1320 20 1440 60V0H0V60Z"
+          fill="#f8fafb" />
+      </svg>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="about section-padding" id="about">
+      <div class="container">
+        <div class="about-image reveal" data-parallax="0.06">
+          <div class="about-image-wrapper img-skeleton"><img src="images/dentist-profile.webp" alt="Dr. Alexander Reed"
+              width="500" height="660" loading="lazy"></div>
+          <div class="about-experience-badge"><strong>12+</strong><span>Years of Excellence</span></div>
+        </div>
+        <div class="about-content reveal">
+          <span class="section-badge">Meet Your Dentist</span>
+          <h2 class="section-title reveal-text">Passionate About<br>Beautiful Smiles</h2>
+          <div class="about-doctor-info reveal" style="margin-bottom: var(--sp-4);">
+            <p class="about-doctor-name">Dr. Alexander Reed</p>
+            <p class="about-doctor-title">Lead Cosmetic Dentist & Founder</p>
+          </div>
+
+          <p class="about-text">Dr. Alexander Reed is a board-certified cosmetic dentist with over 12 years of
+            experience in transformative dental care. A graduate of one of India's top dental colleges, he has
+            dedicated
+            his career to blending artistic precision with medical excellence.</p>
+          <p class="about-text">His approach is simple — treat every patient like family. Dr. Reed believes
+            exceptional
+            dental care should be comfortable, transparent, and tailored to each individual.</p>
+          <div class="about-credentials">
+            <div class="credential-item"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>BDS, MDS — Prosthodontics & Implantology</div>
+            <div class="credential-item"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>Member, Indian Dental Association (IDA)</div>
+            <div class="credential-item"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>Certified in Advanced Implant Dentistry — ITI Fellow</div>
+            <div class="credential-item"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>5,000+ successful cosmetic procedures</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section class="team section-padding" id="team">
+      <div class="container">
+        <div class="section-header reveal"><span class="section-badge">Our Team</span>
+          <h2 class="section-title reveal-text">Meet the Experts<br>Behind Your Smile</h2>
+          <p class="section-subtitle">Our dedicated team of specialists ensures you receive the highest quality care
+            at
+            every visit.</p>
+        </div>
+        <div class="team-grid">
+          <div class="team-card reveal reveal-delay-1">
+            <div class="team-card-inner">
+              <div class="team-photo img-skeleton"><img src="images/dentist-profile.webp" alt="Dr. Alexander Reed"
+                  loading="lazy"></div>
+              <div class="team-info">
+                <h3>Dr. Alexander Reed</h3>
+                <p class="team-role">Lead Cosmetic Dentist</p>
+              </div>
+              <div class="team-bio-overlay">
+                <div class="bio-content">
+                  <h4>Expertise</h4>
+                  <ul>
+                    <li>Cosmetic Artistry</li>
+                    <li>Full Mouth Rehab</li>
+                    <li>Smile Design</li>
+                  </ul>
+                  <p>Transforming oral health since 2012.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="team-card reveal reveal-delay-2">
+            <div class="team-card-inner">
+              <div class="team-photo img-skeleton"><img src="images/team-hygienist.webp" alt="Dr. Priya Sharma"
+                  loading="lazy"></div>
+              <div class="team-info">
+                <h3>Dr. Priya Sharma</h3>
+                <p class="team-role">Dental Hygienist</p>
+              </div>
+              <div class="team-bio-overlay">
+                <div class="bio-content">
+                  <h4>Expertise</h4>
+                  <ul>
+                    <li>Periodontal Therapy</li>
+                    <li>Patient Education</li>
+                    <li>Deep Cleaning</li>
+                  </ul>
+                  <p>Advocate for preventive wellness.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="team-card reveal reveal-delay-3">
+            <div class="team-card-inner">
+              <div class="team-photo img-skeleton"><img src="images/team-assistant.webp" alt="Rahul Mehta"
+                  loading="lazy"></div>
+              <div class="team-info">
+                <h3>Rahul Mehta</h3>
+                <p class="team-role">Orthodontic Specialist</p>
+              </div>
+              <div class="team-bio-overlay">
+                <div class="bio-content">
+                  <h4>Expertise</h4>
+                  <ul>
+                    <li>Invisalign Expert</li>
+                    <li>Clear Braces</li>
+                    <li>Skeletal Anchorage</li>
+                  </ul>
+                  <p>Crafting perfect alignments daily.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="team-card reveal reveal-delay-4">
+            <div class="team-card-inner">
+              <div class="team-photo img-skeleton"><img src="images/team-manager.webp" alt="Anita Desai" loading="lazy">
+              </div>
+              <div class="team-info">
+                <h3>Anita Desai</h3>
+                <p class="team-role">Patient Relations</p>
+              </div>
+              <div class="team-bio-overlay">
+                <div class="bio-content">
+                  <h4>Focus</h4>
+                  <ul>
+                    <li>Patient Journey</li>
+                    <li>Treatment Planning</li>
+                    <li>Studio Operations</li>
+                  </ul>
+                  <p>Ensuring your comfort every visit.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SMILE GALLERY — fixed B/A with matching images -->
+    <section class="gallery section-padding" id="gallery">
+      <div class="container">
+        <div class="section-header reveal"><span class="section-badge">Smile Gallery</span>
+          <h2 class="section-title reveal-text">Real Patients,<br>Real Transformations</h2>
+          <p class="section-subtitle">Browse our gallery of smile transformations and see the life-changing results.
+          </p>
+        </div>
+        <div class="ba-slider reveal" style="max-width:800px;margin:0 auto var(--sp-10);">
+          <!-- Right side (full width background) = AFTER -->
+          <img src="images/ba-after.webp" alt="After dental transformation" loading="lazy">
+          <!-- Left side (clipped overlay) = BEFORE -->
+          <div class="ba-before-wrap"><img src="images/ba-before.webp" alt="Before dental transformation"
+              loading="lazy"></div>
+          <div class="ba-header"><span class="ba-header-label before-label">Before</span><span
+              class="ba-header-label after-label">After</span></div>
+          <div class="ba-handle">
+            <div class="ba-handle-btn"><span class="arrow arrow-left"></span><span class="arrow arrow-right"></span>
+            </div>
+          </div>
+          <span class="ba-hint">← Drag to compare →</span>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item reveal reveal-delay-1"><img src="images/smile-ba-1.webp" alt="Teeth whitening result"
+              loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-text"><span>Teeth Whitening</span><small>Professional in-office
+                  whitening</small></div>
+            </div>
+          </div>
+          <div class="gallery-item reveal reveal-delay-2"><img src="images/smile-ba-2.webp"
+              alt="Porcelain veneers result" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-text"><span>Porcelain Veneers</span><small>Complete smile makeover</small>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-item reveal reveal-delay-3"><img src="images/smile-ba-3.webp" alt="Dental implant result"
+              loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-text"><span>Dental Implants</span><small>Natural-looking replacement</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-choose section-padding" id="why-choose">
+      <div class="container">
+        <div class="section-header reveal"><span class="section-badge">Why PearlCrest</span>
+          <h2 class="section-title">Why Thousands Trust<br>Our Clinic</h2>
+          <p class="section-subtitle">We go beyond standard dental care — delivering precision, comfort, and
+            transparency.</p>
+        </div>
+        <div class="why-choose-grid">
+          <div class="why-card reveal reveal-delay-1">
+            <div class="why-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"
+                viewBox="0 0 24 24">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg></div>
+            <h3>Advanced Technology</h3>
+            <p>Digital X-rays, 3D imaging, and laser dentistry for precise treatments.</p>
+          </div>
+          <div class="why-card reveal reveal-delay-2">
+            <div class="why-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"
+                viewBox="0 0 24 24">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+              </svg></div>
+            <h3>Pain-Free Treatments</h3>
+            <p>Sedation options and gentle techniques for a comfortable experience.</p>
+          </div>
+          <div class="why-card reveal reveal-delay-3">
+            <div class="why-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"
+                viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg></div>
+            <h3>Personalized Care</h3>
+            <p>Every treatment plan is custom-designed for your unique needs.</p>
+          </div>
+          <div class="why-card reveal reveal-delay-1">
+            <div class="why-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"
+                viewBox="0 0 24 24">
+                <line x1="12" y1="1" x2="12" y2="23" />
+                <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+              </svg></div>
+            <h3>Transparent Pricing</h3>
+            <p>No hidden fees. Clear cost breakdowns and flexible payment plans.</p>
+          </div>
+          <div class="why-card reveal reveal-delay-2">
+            <div class="why-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"
+                viewBox="0 0 24 24">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg></div>
+            <h3>Hygienic Standards</h3>
+            <p>Hospital-grade sterilization protocols and single-use instruments.</p>
+          </div>
+          <div class="why-card reveal reveal-delay-3">
+            <div class="why-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"
+                viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg></div>
+            <h3>Flexible Scheduling</h3>
+            <p>Early morning, evening, and Saturday appointments available.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials section-padding" id="testimonials">
+      <div class="container">
+        <div class="section-header reveal"><span class="section-badge">Patient Stories</span>
+          <h2 class="section-title">What Our Patients Say</h2>
+          <p class="section-subtitle">Hear from real patients about their experiences at PearlCrest.</p>
+        </div>
+        <div class="swiper testimonials-slider reveal">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Dr. Reed and his team completely changed my fear of dentists. The smile
+                makeover exceeded all my expectations — I can't stop smiling!"</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">SR</div>
+                <div class="testimonial-author-info"><strong>Sneha R.</strong><span>Smile Makeover Patient</span></div>
+              </div>
+            </div>
+            <div class="swiper-slide testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"The implant procedure was so smooth I couldn't believe it. The results look
+                completely natural. Best dental experience ever."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">MK</div>
+                <div class="testimonial-author-info"><strong>Manish K.</strong><span>Dental Implant Patient</span></div>
+              </div>
+            </div>
+            <div class="swiper-slide testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"From the moment I walked in, I felt at ease. My teeth whitening results were
+                phenomenal — 8 shades brighter!"</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">JT</div>
+                <div class="testimonial-author-info"><strong>Jaya T.</strong><span>Teeth Whitening Patient</span></div>
+              </div>
+            </div>
+            <div class="swiper-slide testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"My kids actually ask to go to the dentist now! The pediatric team is amazing
+                — patient, fun, and thorough."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">DA</div>
+                <div class="testimonial-author-info"><strong>Deepak A.</strong><span>Family Patient</span></div>
+              </div>
+            </div>
+            <div class="swiper-slide testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"I got Invisalign here and the process was seamless. My confidence has
+                skyrocketed with my new smile."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">LP</div>
+                <div class="testimonial-author-info"><strong>Lakshmi P.</strong><span>Invisalign Patient</span></div>
+              </div>
+            </div>
+            <div class="swiper-slide testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Had a root canal here and it was genuinely painless. Pricing was upfront with
+                zero surprises. Highly recommend!"</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">RN</div>
+                <div class="testimonial-author-info"><strong>Rohan N.</strong><span>Root Canal Patient</span></div>
+              </div>
+            </div>
+          </div>
+          <!-- Pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section class="booking section-padding" id="booking">
+      <div class="container">
+        <div class="booking-info reveal">
+          <span class="section-badge">Book an Appointment</span>
+          <h2 class="section-title">Schedule Your Visit<br>in 60 Seconds</h2>
+          <p class="section-subtitle">Fill out the quick form and our team will reach out within 2 hours to confirm.
+          </p>
+          <div class="booking-features">
+            <div class="booking-feature">
+              <div class="booking-feature-icon"><svg width="22" height="22" fill="none" stroke="currentColor"
+                  stroke-width="2" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg></div>
+              <div><strong>Quick Confirmation</strong><span>We'll call you within 2 hours</span></div>
+            </div>
+            <div class="booking-feature">
+              <div class="booking-feature-icon"><svg width="22" height="22" fill="none" stroke="currentColor"
+                  stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg></div>
+              <div><strong>Zero Obligation</strong><span>Free initial consultation</span></div>
+            </div>
+            <div class="booking-feature">
+              <div class="booking-feature-icon"><svg width="22" height="22" fill="none" stroke="currentColor"
+                  stroke-width="2" viewBox="0 0 24 24">
+                  <line x1="12" y1="1" x2="12" y2="23" />
+                  <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+                </svg></div>
+              <div><strong>Transparent Pricing</strong><span>No hidden costs, ever</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="booking-form-card reveal">
+          <h3>Request an Appointment</h3>
+          <form id="appointmentForm" novalidate>
+            <div class="form-row">
+              <div class="form-group"><label for="fullName">Full Name *</label><input type="text" id="fullName"
+                  name="fullName" placeholder="John Doe" required></div>
+              <div class="form-group"><label for="phone">Phone Number *</label><input type="tel" id="phone" name="phone"
+                  placeholder="9876543210" required pattern="[0-9]{10}" title="Enter a valid 10-digit phone number">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email"
+                  name="email" placeholder="john@example.com" required
+                  pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" title="Enter a valid email address">
+              </div>
+              <div class="form-group"><label for="preferredDate">Preferred Date *</label><input type="date"
+                  id="preferredDate" name="preferredDate" required></div>
+            </div>
+            <div class="form-group"><label for="service">Service Needed</label><select id="service" name="service">
+                <option value="">Select a service</option>
+                <option value="whitening">Teeth Whitening</option>
+                <option value="implants">Dental Implants</option>
+                <option value="makeover">Smile Makeover</option>
+                <option value="rootcanal">Root Canal Treatment</option>
+                <option value="braces">Braces & Aligners</option>
+                <option value="pediatric">Pediatric Dentistry</option>
+                <option value="consultation">General Consultation</option>
+              </select></div>
+            <div class="form-group"><label for="message">Additional Message</label><textarea id="message" name="message"
+                placeholder="Tell us about your dental concern..."></textarea></div>
+            <button type="submit" class="btn btn-primary btn-large form-submit">Book My Appointment</button>
+            <p class="form-note">🔒 Your information is secure and will never be shared.</p>
+          </form>
+          <div class="form-success" id="formSuccess"><svg width="56" height="56" fill="none" stroke="currentColor"
+              stroke-width="2" viewBox="0 0 24 24">
+              <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            <h4>Appointment Requested!</h4>
+            <p>Thank you! Our team will contact you within 2 hours to confirm.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq section-padding" id="faq">
+      <div class="container">
+        <div class="section-header reveal"><span class="section-badge">FAQ</span>
+          <h2 class="section-title">Frequently Asked<br>Questions</h2>
+          <p class="section-subtitle">Got questions? We've answered the most common ones.</p>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item reveal"><button class="faq-question" aria-expanded="false">Is professional teeth
+              whitening safe?<span class="faq-icon">+</span></button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">Absolutely. Professional teeth whitening under dental supervision is
+                completely safe. We use approved whitening agents and carefully monitor the process to protect your
+                enamel and gums.</div>
+            </div>
+          </div>
+          <div class="faq-item reveal"><button class="faq-question" aria-expanded="false">How long do dental implants
+              last?<span class="faq-icon">+</span></button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">With proper care and regular check-ups, dental implants can last a
+                lifetime
+                — typically 25+ years. The crown on top may need replacement after 10–15 years due to normal wear.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item reveal"><button class="faq-question" aria-expanded="false">Do dental treatments
+              hurt?<span class="faq-icon">+</span></button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">Most procedures are virtually painless thanks to advanced anesthesia and
+                sedation options. We offer nitrous oxide, oral sedation, and local anesthesia for your complete
+                comfort.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item reveal"><button class="faq-question" aria-expanded="false">Do you accept
+              insurance?<span class="faq-icon">+</span></button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">Yes, we accept most major dental insurance plans. Our team will verify
+                your
+                coverage before treatment and help you understand your benefits. We also offer flexible EMI options.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item reveal"><button class="faq-question" aria-expanded="false">How long does a consultation
+              take?<span class="faq-icon">+</span></button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">A typical initial consultation takes about 45–60 minutes. This includes a
+                comprehensive oral exam, digital X-rays, goal discussion, and a personalized treatment plan.</div>
+            </div>
+          </div>
+          <div class="faq-item reveal"><button class="faq-question" aria-expanded="false">How often should I visit the
+              dentist?<span class="faq-icon">+</span></button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">We recommend every 6 months for routine check-ups and professional
+                cleaning.
+                Regular visits catch issues early before they become complicated and costly.</div>
+            </div>
+          </div>
+          <div class="faq-item reveal"><button class="faq-question" aria-expanded="false">What sets PearlCrest
+              apart?<span class="faq-icon">+</span></button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">We combine boutique-level personal attention with cutting-edge technology.
+                Every treatment is personalized, pricing is fully transparent, and we invest in the latest equipment
+                including 3D imaging and laser dentistry.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact section-padding" id="contact">
+      <div class="container">
+        <div class="section-header reveal"><span class="section-badge">Get in Touch</span>
+          <h2 class="section-title">Visit Our Clinic</h2>
+          <p class="section-subtitle">We'd love to welcome you. Visit us, call, or send a message.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info-cards reveal">
+            <div class="contact-card">
+              <div class="contact-card-icon"><svg width="22" height="22" fill="none" stroke="currentColor"
+                  stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg></div>
+              <div>
+                <h4>Address</h4>
+                <p>42 Prestige Boulevard, Riverside Tower<br>3rd Floor, Mumbai – 400001</p>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-card-icon"><svg width="22" height="22" fill="none" stroke="currentColor"
+                  stroke-width="2" viewBox="0 0 24 24">
+                  <path
+                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                </svg></div>
+              <div>
+                <h4>Phone</h4>
+                <p><a href="tel:+912240001234">+91 22 4000 1234</a></p>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-card-icon"><svg width="22" height="22" fill="none" stroke="currentColor"
+                  stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg></div>
+              <div>
+                <h4>Email</h4>
+                <p><a href="mailto:hello@pearlcrestdental.com">hello@pearlcrestdental.com</a></p>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-card-icon"><svg width="22" height="22" fill="none" stroke="currentColor"
+                  stroke-width="2" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg></div>
+              <div>
+                <h4>Business Hours</h4>
+                <p>Mon – Fri: 8:00 AM – 7:00 PM<br>Saturday: 9:00 AM – 4:00 PM<br>Sunday: Closed</p>
+              </div>
+            </div>
+            <a href="tel:+912240001234" class="btn btn-primary btn-large" style="width:100%;margin-top:var(--sp-4)">Call
+              Us Now</a>
+          </div>
+          <div class="contact-map reveal"><iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.861!2d72.8311!3d18.9388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce1d8b8e2f1d%3A0x7a2f3f7e3f7e3f7e!2sMumbai%2C+Maharashtra!5e0!3m2!1sen!2sin"
+              allowfullscreen="" loading="lazy" title="PearlCrest Dental Studio Location"></iframe></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo"><img src="images/logo.webp" alt="PearlCrest" width="42" height="42"
+              style="border-radius:6px">
+            <div class="nav-logo-text"><span class="nav-logo-name">PearlCrest</span><span class="nav-logo-tag">Dental
+                Studio</span></div>
+          </div>
+          <p>Transforming smiles with precision, compassion, and cutting-edge dental care since 2014. Your trusted
+            partner for lifelong oral health.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+              </svg></a>
+            <a href="#" aria-label="Instagram"><svg width="18" height="18" fill="none" stroke="currentColor"
+                stroke-width="2" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg></a>
+            <a href="#" aria-label="Twitter"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+              </svg></a>
+            <a href="#" aria-label="YouTube"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" />
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+              </svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#gallery">Smile Gallery</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#booking">Book Appointment</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Teeth Whitening</a></li>
+            <li><a href="#services">Dental Implants</a></li>
+            <li><a href="#services">Smile Makeover</a></li>
+            <li><a href="#services">Root Canal</a></li>
+            <li><a href="#services">Braces & Aligners</a></li>
+            <li><a href="#services">Pediatric Dentistry</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+912240001234">+91 22 4000 1234</a></li>
+            <li><a href="mailto:hello@pearlcrestdental.com">hello@pearlcrestdental.com</a></li>
+            <li>42 Prestige Blvd, 3rd Floor</li>
+            <li>Mumbai – 400001</li>
+            <li>Mon–Fri: 8AM – 7PM</li>
+            <li>Saturday: 9AM – 4PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Designed and Developed by <strong>Dhruv</strong></p>
+        <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms & Conditions</a></div>
+        <p>Powered by <strong>HRILAX</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Image lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+    <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous">‹</button>
+    <button class="lightbox-nav next" id="lightboxNext" aria-label="Next">›</button>
+    <img id="lightboxImg" src="" alt="Gallery image">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+
+  <!-- Desktop Sticky CTA Bar -->
+  <div class="sticky-cta-bar" id="stickyCta">
+    <div class="container">
+      <span class="sticky-cta-text">Ready for a <strong>brighter smile</strong>? Book your free consultation
+        today.</span>
+      <div class="sticky-cta-actions">
+        <a href="tel:+912240001234" class="sticky-cta-phone"><svg width="16" height="16" fill="none"
+            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path
+              d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+          </svg>+91 22 4000 1234</a>
+        <a href="#booking" class="btn btn-primary">Book Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top"><svg width="20" height="20" fill="none"
+      stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+      <polyline points="18 15 12 9 6 15" />
+    </svg></button>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="script.js?v=5" defer></script>
+</body>
+
+</html>
