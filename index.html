@@ -1,712 +1,485 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio | Code. Create. Secure.</title>
+<html lang="en">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="script.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Engineering Digital Excellence</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+  <!-- Core Dependencies -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cyber: {
+              cyan: "#00f3ff",
+              purple: "#bc13fe",
+              dark: "#050505",
+              darker: "#020202",
+              glass: "rgba(255, 255, 255, 0.03)",
+            },
+          },
+          fontFamily: {
+            outfit: ["Outfit", "sans-serif"],
+            inter: ["Inter", "sans-serif"],
+            cyber: ["Orbitron", "sans-serif"],
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          }
+        },
+      },
+    };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 
-    <link rel="stylesheet" href="style.css" />
-  </head>
+  <!-- Core Script moved to bottom -->
 
-  <body class="bg-cyber-dark text-white font-sans overflow-x-hidden selection:bg-cyber-cyan selection:text-black">
+  <!-- SEO -->
+  <meta name="description"
+    content="Portfolio of Dhruv - CSE Student & Cybersecurity Enthusiast building high-performance digital systems.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <div class="fixed inset-0 z-0 opacity-20 pointer-events-none bg-grid-pattern"></div>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-    <nav class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-2xl">
-      <div class="backdrop-blur-xl bg-cyber-glass border border-white/10 rounded-full px-6 py-4 flex justify-between items-center shadow-2xl">
-        <div class="font-cyber font-bold text-cyber-cyan tracking-wider">
-          Dhruv
-        </div>
-        <div class="hidden md:flex space-x-8 text-sm text-gray-300 font-medium">
-          <a href="#home" class="hover:text-cyber-cyan transition-colors">Home</a>
-          <a href="#services" class="hover:text-cyber-cyan transition-colors">Services</a>
-          <a href="#projects" class="hover:text-cyber-cyan transition-colors">Projects</a>
-          <a href="#contact" class="hover:text-cyber-cyan transition-colors">Contact</a>
-        </div>
-        <button class="md:hidden text-cyber-cyan">///</button>
+<body class="bg-cyber-dark text-white font-inter overflow-x-hidden selection:bg-cyan-500/30 selection:text-white">
+
+  <!-- Background Canvas - Specifically layered to be visible above the static background patterns but behind main sections -->
+  <canvas id="bg-canvas" class="fixed inset-0 pointer-events-none" style="z-index: 1;"></canvas>
+
+  <!-- Overlays -->
+  <div class="noise-overlay"></div>
+  <div class="scanlines"></div>
+  <div class="bg-grid-pattern"></div>
+  <div class="ambient-glow"></div>
+  <div class="ambient-glow-2"></div>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor hidden md:block"></div>
+  <div class="cursor-follower hidden md:block"></div>
+
+  <!-- Mobile System Menu -->
+  <div id="mobile-menu">
+    <a href="#home">Home</a>
+    <a href="#services">Specialties</a>
+    <a href="#projects">Work</a>
+    <a href="#tech-stack">Tech</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- Global Nav -->
+  <nav class="fixed top-8 left-1/2 transform -translate-x-1/2 z-[2000] w-[90%] max-w-4xl">
+    <div
+      class="glass rounded-full px-8 py-4 flex justify-between items-center shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+      <div class="font-cyber font-bold text-cyber-cyan tracking-widest text-lg magnetic">
+        DHRUV
       </div>
-    </nav>
-
-    <section id="home" class="relative z-10 min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20">
-      <div class="hero-glow mb-8 relative group">
-        <img src="herologo.png" alt="Cyber Cube" class="w-64 h-64 md:w-96 md:h-96 object-contain animate-pulse mix-blend-screen hover:scale-110 transition-transform duration-500" />
-        <div class="absolute inset-0 bg-cyber-cyan/20 blur-[100px] rounded-full -z-10"></div>
+      <div class="hidden md:flex space-x-10 text-[10px] uppercase tracking-[3px] font-bold">
+        <a href="#home" class="hover:text-cyber-cyan transition-colors">Home</a>
+        <a href="#services" class="hover:text-cyber-cyan transition-colors">Specialties</a>
+        <a href="#projects" class="hover:text-cyber-cyan transition-colors">Work</a>
+        <a href="#tech-stack" class="hover:text-cyber-cyan transition-colors">Tech</a>
+        <a href="#contact" class="hover:text-cyber-cyan transition-colors">Contact</a>
       </div>
+      <button id="mobile-toggle"
+        class="md:hidden text-cyber-cyan ring-1 ring-cyber-cyan/50 px-4 py-2 rounded-full font-cyber text-[8px] tracking-widest">MENU()</button>
+    </div>
+  </nav>
 
-      <h1 class="font-cyber text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6 leading-tight">
-        <span class="block text-white">CODE.</span>
-        <span class="block text-gray-400">CREATE.</span>
-        <span class="block text-cyber-cyan text-glow">SECURE.</span>
-      </h1>
+  <section id="home"
+    class="relative z-10 min-h-screen flex flex-col justify-center items-center text-center px-4 pt-16 overflow-hidden">
+    <div
+      class="hero-title font-outfit text-6xl md:text-8xl lg:text-[9.5rem] font-black tracking-tighter mb-4 leading-[0.9]">
+      <span class="block text-white opacity-90">CODE.</span>
+      <span class="block text-gray-600">CREATE.</span>
+      <span class="block text-gradient">SECURE.</span>
+    </div>
 
-      <p class="text-gray-400 text-lg md:text-xl max-w-xl mx-auto mb-12 font-light">
-        I build digital fortresses and interactive experiences.
-        <span class="text-cyber-cyan">CSE Student</span> &
-        <span class="text-cyber-purple">Cybersecurity Enthusiast</span>.
-      </p>
+    <p
+      class="hero-subtitle text-gray-400 text-lg md:text-2xl max-w-2xl mx-auto mb-10 font-light tracking-wide leading-relaxed">
+      Building high-performance digital systems &
+      <span class="text-cyber-cyan border-b border-cyber-cyan/30">interactive silicon experiences</span>.
+    </p>
 
-      <div class="flex gap-4">
-        <a href="#contact" class="px-8 py-3 bg-cyber-cyan text-black font-bold rounded-full hover:bg-white transition-all transform hover:scale-105">
-          Start Project
-        </a>
-        <a href="#projects" class="px-8 py-3 border border-white/20 rounded-full hover:bg-white/10 transition-all">
-          View Work
-        </a>
-      </div>
-    </section>
+    <div class="hero-cta flex flex-wrap justify-center gap-6">
+      <a href="#projects"
+        class="magnetic px-12 py-5 bg-white text-black font-black uppercase tracking-widest text-xs rounded-full hover:bg-cyber-cyan active:scale-95">
+        View Work
+      </a>
+      <a href="#contact"
+        class="magnetic px-12 py-5 border border-white/10 rounded-full hover:bg-white/5 text-gray-400 uppercase tracking-widest text-xs font-bold">
+        Start Project
+      </a>
+    </div>
+  </section>
 
-    <section id="services" class="relative z-10 py-24 px-4 max-w-6xl mx-auto">
-      <h2 class="font-cyber text-3xl mb-12 text-center text-gray-500">
-        MY SPECIALTIES
+  <section id="services" class="relative z-10 pt-32 pb-12 px-4 max-w-7xl mx-auto">
+    <div class="section-header text-center mb-12">
+      <h2 class="font-outfit text-sm font-black tracking-[0.5em] text-cyan-500 uppercase mb-4">
+        Specialties
       </h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="group relative bg-neutral-900/50 border border-white/10 p-8 rounded-2xl backdrop-blur-sm box-glow transition-all duration-300">
-          <div class="text-cyber-cyan text-4xl mb-4">01</div>
-          <h3 class="font-cyber text-xl font-bold mb-2 group-hover:text-cyber-cyan">
-            Web Development
-          </h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
-            High-performance React & Tailwind websites that look expensive and load instantly.
-          </p>
-        </div>
-
-        <div class="group relative bg-neutral-900/50 border border-white/10 p-8 rounded-2xl backdrop-blur-sm box-glow transition-all duration-300">
-          <div class="text-cyber-purple text-4xl mb-4">02</div>
-          <h3 class="font-cyber text-xl font-bold mb-2 group-hover:text-cyber-purple">
-            Cybersecurity
-          </h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
-            Secure code practices, vulnerability assessment, and digital safety protocols.
-          </p>
-        </div>
-
-        <div class="group relative bg-neutral-900/50 border border-white/10 p-8 rounded-2xl backdrop-blur-sm box-glow transition-all duration-300">
-          <div class="text-white text-4xl mb-4">03</div>
-          <h3 class="font-cyber text-xl font-bold mb-2 group-hover:text-white">
-            UI/UX Design
-          </h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
-            Translating complex ideas into intuitive, glassmorphic interfaces.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="relative z-10 py-24 px-4 max-w-7xl mx-auto">
-      <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-        <div>
-          <h2 class="font-cyber text-3xl md:text-4xl text-white mb-2">
-            FEATURED_WORK
-          </h2>
-          <div class="h-1 w-20 bg-cyber-cyan shadow-[0_0_10px_#00f3ff]"></div>
-        </div>
-        <a href="https://github.com/Dhruv727876" target="_blank" class="hidden md:block text-cyber-cyan hover:text-white transition-colors mt-4 md:mt-0 font-cyber text-sm tracking-widest">
-          // VIEW_GITHUB_REPO
-        </a>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-        <div class="group relative rounded-xl overflow-hidden border border-white/10 bg-neutral-900/50 backdrop-blur-sm">
-          <div class="aspect-video bg-black relative overflow-hidden">
-            <img src="PROJECT1thumbnail.png" alt="iPhone 17 Pro Clone" class="object-cover w-full h-full group-hover:scale-110 group-hover:opacity-50 transition-all duration-500" />
-            <div class="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <a href="PROJECT1/indexAI.html" target="_blank" class="px-6 py-2 bg-cyber-cyan text-black font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-white">
-                Launch Experience
-              </a>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="font-cyber text-xl font-bold text-white mb-2 group-hover:text-cyber-cyan transition-colors">
-              iPhone 17 Pro Clone
-            </h3>
-            <p class="text-gray-400 text-sm mb-4">
-              A pixel-perfect replica of Apple's launch page featuring scroll-triggered animations and bento-grid layouts.
-            </p>
-            <div class="flex gap-2">
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-cyber-purple">React</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-cyber-cyan">Framer Motion</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-white">Tailwind</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="group relative rounded-xl overflow-hidden border border-white/10 bg-neutral-900/50 backdrop-blur-sm">
-          <div class="aspect-video bg-black relative overflow-hidden">
-            <img src="PROJECT2thumbnail.png" alt="PixelCipher Steganography Tool" class="object-cover w-full h-full group-hover:scale-110 group-hover:opacity-50 transition-all duration-500" />
-            <div class="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <a href="PROJECT2/index.html" target="_blank" class="px-6 py-2 bg-green-500 text-black font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-white hover:text-black">
-                Launch Tool
-              </a>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="font-cyber text-xl font-bold text-white mb-2 group-hover:text-green-500 transition-colors">
-              PixelCipher // Steganography
-            </h3>
-            <p class="text-gray-400 text-sm mb-4">
-              A browser-based spy tool that hides secret text messages inside ordinary image files using bit-manipulation algorithms (LSB).
-            </p>
-            <div class="flex gap-2">
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-green-500">JavaScript</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-green-500">Canvas API</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-white">Cryptography</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="group relative rounded-xl overflow-hidden border border-white/10 bg-neutral-900/50 backdrop-blur-sm">
-          <div class="aspect-video bg-black relative overflow-hidden">
-            <img src="PROJECT3thumbnail.png" alt="NODEHUNTER IP Tracker" class="object-cover w-full h-full group-hover:scale-110 group-hover:opacity-50 transition-all duration-500" />
-            <div class="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <a href="PROJECT3/index.html" target="_blank" class="px-6 py-2 bg-blue-500 text-white font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-white hover:text-black">
-                Initiate Scan
-              </a>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="font-cyber text-xl font-bold text-white mb-2 group-hover:text-blue-500 transition-colors">
-              NODEHUNTER // Global IP Tracker
-            </h3>
-            <p class="text-gray-400 text-sm mb-4">
-              A real-time network surveillance tool that hunts down IP addresses, visualizes ISP data center locations on an interactive dark-mode map, and identifies network providers.
-            </p>
-            <div class="flex gap-2">
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-blue-400">Fetch API</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-blue-400">Leaflet.js</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-white">OSINT</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="group relative rounded-xl overflow-hidden border border-white/10 bg-neutral-900/50 backdrop-blur-sm">
-          <div class="aspect-video bg-black relative overflow-hidden">
-            <img src="PROJECT4thumbnail.png" alt="SENTIENT AI Vision" class="object-cover w-full h-full group-hover:scale-110 group-hover:opacity-50 transition-all duration-500" />
-            <div class="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <a href="PROJECT4/index.html" target="_blank" class="px-6 py-2 bg-green-500 text-black font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-white">
-                Launch Vision
-              </a>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="font-cyber text-xl font-bold text-white mb-2 group-hover:text-green-500 transition-colors">
-              SENTIENT // Real-Time AI
-            </h3>
-            <p class="text-gray-400 text-sm mb-4">
-              A high-performance computer vision system running entirely in the browser. Uses Google's EfficientDet-Lite model to detect and track objects at 60 FPS with military-grade precision.
-            </p>
-            <div class="flex gap-2">
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-green-400">MediaPipe</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-green-400">TensorFlow.js</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-white">AI/ML</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="group relative rounded-xl overflow-hidden border border-white/10 bg-neutral-900/50 backdrop-blur-sm">
-          <div class="aspect-video bg-black relative overflow-hidden">
-            <img src="PROJECT5thumbnail.png" alt="3D Shoe Configurator" class="object-cover w-full h-full group-hover:scale-110 group-hover:opacity-50 transition-all duration-500" />
-            <div class="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <a href="PROJECT5/index.html" target="_blank" class="px-6 py-2 bg-amber-500 text-black font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-white">
-                Launch 3D App
-              </a>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="font-cyber text-xl font-bold text-white mb-2 group-hover:text-amber-500 transition-colors">
-              Nike 3D Configurator // Three.js
-            </h3>
-            <p class="text-gray-400 text-sm mb-4">
-              An immersive 3D product customization tool. Features real-time state management with Zustand, PBR materials, and seamless React-Three-Fiber integration for a showroom experience.
-            </p>
-            <div class="flex gap-2">
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-amber-500">React Three Fiber</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-amber-500">Zustand</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-white">WebGL</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="group relative rounded-xl overflow-hidden border border-white/10 bg-neutral-900/50 backdrop-blur-sm">
-          <div class="aspect-video bg-black relative overflow-hidden">
-            <img src="PROJECT6thumbnail.png" alt="Apple Watch Series 9 3D" class="object-cover w-full h-full group-hover:scale-110 group-hover:opacity-50 transition-all duration-500" />
-            <div class="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <a href="PROJECT6/index.html" target="_blank" class="px-6 py-2 bg-blue-500 text-white font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-white hover:text-black">
-                View Experience
-              </a>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="font-cyber text-xl font-bold text-white mb-2 group-hover:text-blue-500 transition-colors">
-              Apple Watch Series 9 // ScrollTrigger
-            </h3>
-            <p class="text-gray-400 text-sm mb-4">
-              A cinematic product landing page. Uses GSAP ScrollTrigger to orchestrate complex 3D camera movements, lighting shifts, and glassmorphism UI reveals based on user scrolling.
-            </p>
-            <div class="flex gap-2">
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-blue-500">GSAP</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-blue-500">React Three Fiber</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-white">3D Animation</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="group relative rounded-xl overflow-hidden border border-white/10 bg-neutral-900/50 backdrop-blur-sm">
-          <div class="aspect-video bg-black relative overflow-hidden">
-            <img src="PROJECT8thumbnail.png" alt="Figma UI/UX Design" class="object-cover w-full h-full group-hover:scale-110 group-hover:opacity-50 transition-all duration-500" />
-            <div class="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <a href="https://www.figma.com/design/jNCuFUklwyyFRrUk8Kw54J/Untitled?node-id=1-1375&t=iXS1C2NhueaHFZjE-1" target="_blank" class="px-6 py-2 bg-pink-500 text-white font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-white hover:text-black">
-                View Prototype
-              </a>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="font-cyber text-xl font-bold text-white mb-2 group-hover:text-pink-500 transition-colors">
-              Modern UI/UX System // Figma
-            </h3>
-            <p class="text-gray-400 text-sm mb-4">
-              A high-fidelity interface design featuring advanced auto-layout components, interactive prototyping, and a consistent design system focused on user-centric accessibility.
-            </p>
-            <div class="flex gap-2">
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-pink-500">Figma</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-pink-500">Prototyping</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-white">UI/UX</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="group relative rounded-xl overflow-hidden border border-white/10 bg-neutral-900/50 backdrop-blur-sm">
-          <div class="aspect-video bg-black relative overflow-hidden">
-            <img src="PROJECT7thumbail.png" alt="Interactive 3D Lamp Login" class="object-cover w-full h-full group-hover:scale-110 group-hover:opacity-50 transition-all duration-500" />
-            <div class="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <a href="PROJECT7/index.html" target="_blank" class="px-6 py-2 bg-yellow-400 text-black font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-white">
-                Pull The Cord
-              </a>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="font-cyber text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">
-              Physics Lamp Login // Vanilla JS
-            </h3>
-            <p class="text-gray-400 text-sm mb-4">
-              A creative login interface featuring a physics-based pull cord (vector math), dynamic radial lighting engines, and privacy-aware animations that react to user input focus.
-            </p>
-            <div class="flex gap-2">
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-yellow-400">Physics Engine</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-yellow-400">DOM Manipulation</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-white">Cybersecurity UX</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="group relative rounded-xl overflow-hidden border border-white/10 bg-neutral-900/50 backdrop-blur-sm">
-          <div class="aspect-video bg-black relative overflow-hidden">
-            <img src="PROJECT9thumbnail.png" alt="NEXUS Glass UI Kit" class="object-cover w-full h-full group-hover:scale-110 group-hover:opacity-50 transition-all duration-500" />
-            <div class="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <a href="PROJECT9/index.html" target="_blank" class="px-6 py-2 bg-emerald-500 text-black font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-white">
-                Launch System
-              </a>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="font-cyber text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
-              NEXUS // Glassmorphism UI
-            </h3>
-            <p class="text-gray-400 text-sm mb-4">
-              A futuristic UI kit featuring advanced glassmorphism, physics-based 3D card interactions, and responsive bento grids. Built for high-performance React applications.
-            </p>
-            <div class="flex gap-2">
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-emerald-400">React</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-emerald-400">Framer Motion</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-white">Tailwind</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="group relative rounded-xl overflow-hidden border border-white/10 bg-neutral-900/50 backdrop-blur-sm">
-          <div class="aspect-video bg-black relative overflow-hidden">
-            <img src="PROJECT10thumbnail.png" alt="Oryon Genesis Silicon" class="object-cover w-full h-full group-hover:scale-110 group-hover:opacity-50 transition-all duration-500" />
-            <div class="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <a href="PROJECT10/index.html" target="_blank" class="px-6 py-2 bg-[#00f3ff] text-black font-bold rounded-full shadow-[0_0_20px_rgba(0,243,255,0.4)] transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-white">
-                Initialize Core
-              </a>
-            </div>
-            <div class="absolute top-4 right-4 px-3 py-1 bg-cyber-cyan text-black text-[10px] font-black tracking-tighter rounded-full z-20">
-              ULTIMATE_ELITE
-            </div>
-          </div>
-          <div class="p-6">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="font-cyber text-xl font-bold text-white group-hover:text-cyber-cyan transition-colors">
-                ORYON GENESIS // Snapdragon 8 Elite
-              </h3>
-            </div>
-            <p class="text-gray-400 text-sm mb-4">
-              A cinematic hardware visualization for HRILAX. Features an orbital 3D cylinder deconstruction, interactive RTX lighting slider, and AI terminal emulation.
-            </p>
-            <div class="flex gap-2">
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-cyber-cyan">3D Orbit</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-cyber-purple">GSAP ScrollTrigger</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-white">Silicon UI</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="group relative rounded-xl overflow-hidden border border-white/10 bg-neutral-900/50 backdrop-blur-sm">
-          <div class="aspect-video bg-black relative overflow-hidden">
-            <img src="PROJECT11thumbnail.png" alt="Oryon Genesis Fashion Web" class="object-cover w-full h-full group-hover:scale-110 group-hover:opacity-50 transition-all duration-500" />
-            
-            <div class="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <a href="PROJECT11/index.html" target="_blank" class="px-6 py-2 bg-pink-500 text-white font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-white hover:text-black">
-                Enter Runway
-              </a>
-            </div>
-            
-            <div class="absolute top-4 right-4 px-3 py-1 bg-pink-500 text-white text-[10px] font-black tracking-tighter rounded-full z-20 shadow-[0_0_15px_rgba(236,72,153,0.6)]">
-              NEW_DROP
-            </div>
-          </div>
-          
-          <div class="p-6">
-            <h3 class="font-cyber text-xl font-bold text-white mb-2 group-hover:text-pink-500 transition-colors">
-            Drip Fashion
-            </h3>
-            <p class="text-gray-400 text-sm mb-4">
-              A high-contrast, maximalist e-commerce web app. Features fluid glassmorphism, dynamic CSS auras, and a modern brutalist UI design language built for high engagement.
-            </p>
-            <div class="flex gap-2">
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-pink-400">Next.js</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-pink-400">Tailwind</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-white">UI/UX</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- PROJECT 12: ELYX -->
-<div class="group relative rounded-xl overflow-hidden border border-white/10 bg-neutral-900/50 backdrop-blur-sm">
-  <div class="aspect-video bg-black relative overflow-hidden">
-    <!-- Note: Rename your generated thumbnail to PROJECT12thumbnail.png -->
-    <img src="PROJECT12thumbnail.png" alt="ELYX Autonomous Intelligence" class="object-cover w-full h-full group-hover:scale-110 group-hover:opacity-50 transition-all duration-500" />
-    
-    <div class="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-      <a href="PROJECT12/index.html" target="_blank" class="px-6 py-2 bg-cyber-cyan text-black font-bold rounded-full shadow-[0_0_20px_rgba(0,243,255,0.4)] transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-white">
-        Initialize OS
-      </a>
-    </div>
-    
-    <div class="absolute top-4 right-4 px-3 py-1 bg-cyber-cyan text-black text-[10px] font-black tracking-tighter rounded-full z-20 shadow-[0_0_15px_rgba(0,243,255,0.4)]">
-      CORE_GENESIS
-    </div>
-  </div>
-  
-  <div class="p-6">
-    <h3 class="font-cyber text-xl font-bold text-white mb-2 group-hover:text-cyber-cyan transition-colors">
-      ELYX // Autonomous Intelligence
-    </h3>
-    <p class="text-gray-400 text-sm mb-4">
-      The operating system for autonomous agents. Features multi-layered orchestration, zero-retention privacy protocols, and a high-fidelity terminal interface for complex deep-work automation.
-    </p>
-    <div class="flex gap-2">
-      <span class="text-xs border border-white/20 px-2 py-1 rounded text-cyber-cyan">Next.js 15</span>
-      <span class="text-xs border border-white/20 px-2 py-1 rounded text-cyber-purple">AI Orchestration</span>
-      <span class="text-xs border border-white/20 px-2 py-1 rounded text-white">TypeScript</span>
-    </div>
-  </div>
-</div>
-
-        <!-- PROJECT 13: LUMINA -->
-        <div class="group relative rounded-xl overflow-hidden border border-white/10 bg-neutral-900/50 backdrop-blur-sm">
-          <div class="aspect-video bg-black relative overflow-hidden">
-            <!-- Ensure you rename the generated thumbnail to PROJECT13thumbnail.png and put it in your images folder -->
-            <img src="PROJECT13thumbnail.png" alt="Lumina Dental Luxury Application" class="object-cover w-full h-full group-hover:scale-110 group-hover:opacity-50 transition-all duration-500" />
-            
-            <div class="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <a href="PROJECT13/index.html" target="_blank" class="px-6 py-2 bg-[#c5a880] text-black font-bold rounded-full shadow-[0_0_20px_rgba(197,168,128,0.4)] transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-white hover:text-black">
-                Experience Luxury
-              </a>
-            </div>
-            
-            <div class="absolute top-4 right-4 px-3 py-1 bg-[#c5a880] text-black text-[10px] font-black tracking-tighter rounded-full z-20 shadow-[0_0_15px_rgba(197,168,128,0.4)]">
-              MIDNIGHT_LUXURY
-            </div>
-          </div>
-          
-          <div class="p-6">
-            <h3 class="font-cyber text-xl font-bold text-white mb-2 group-hover:text-[#c5a880] transition-colors">
-              LUMINA // Premium Dental
-            </h3>
-            <p class="text-gray-400 text-sm mb-4">
-              A high-end, luxury clinical web app. Features pristine dark-mode aesthetics, complex scroll-parallax animations, and next-gen responsive image optimization algorithms.
-            </p>
-            <div class="flex gap-2">
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-[#c5a880]">React</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-white">Framer Motion</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-white">CSS Variables</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- PROJECT: VELOUR DIGITAL FLAGSHIP -->
-<div class="group relative rounded-xl overflow-hidden border border-white/10 bg-neutral-900/50 backdrop-blur-sm">
-
-  <div class="aspect-video bg-black relative overflow-hidden">
-
-    <!-- Replace with your generated thumbnail -->
-    <img src="PROJECT14thumbnail.png"
-         alt="VELOUR Luxury Salon Digital Flagship"
-         class="object-cover w-full h-full group-hover:scale-110 group-hover:opacity-50 transition-all duration-500" />
-
-    <!-- Hover Overlay -->
-    <div class="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-      <a href="PROJECT14/index.html" 
-         target="_blank"
-         class="px-6 py-2 bg-[#d4af37] text-black font-bold rounded-full shadow-[0_0_25px_rgba(212,175,55,0.4)] transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-white hover:text-black">
-        Enter Flagship
-      </a>
+      <div class="h-[1px] w-12 bg-white/20 mx-auto"></div>
     </div>
 
-    <!-- Premium Badge -->
-    <div class="absolute top-4 right-4 px-3 py-1 bg-[#d4af37] text-black text-[10px] font-black tracking-tighter rounded-full z-20 shadow-[0_0_15px_rgba(212,175,55,0.5)]">
-      LUXURY_SYSTEM
-    </div>
-
-  </div>
-
-  <div class="p-6">
-
-    <h3 class="font-cyber text-xl font-bold text-white mb-2 group-hover:text-[#d4af37] transition-colors">
-      VELOUR // Digital Flagship
-    </h3>
-
-    <p class="text-gray-400 text-sm mb-4">
-      A high-performance luxury salon web experience engineered with fluid typography, adaptive grid systems, glassmorphic overlays, and conversion-optimized mobile architecture. Built for seamless premium perception across all devices.
-    </p>
-
-    <div class="flex gap-2 flex-wrap">
-      <span class="text-xs border border-white/20 px-2 py-1 rounded text-[#d4af37]">HTML5</span>
-      <span class="text-xs border border-white/20 px-2 py-1 rounded text-[#d4af37]">CSS Grid</span>
-      <span class="text-xs border border-white/20 px-2 py-1 rounded text-[#d4af37]">Lenis Scroll</span>
-      <span class="text-xs border border-white/20 px-2 py-1 rounded text-white">Performance UX</span>
-    </div>
-
-  </div>
-</div>
-
-<!-- PROJECT 15: ROOTHEA -->
-<div class="group relative rounded-xl overflow-hidden border border-white/10 bg-neutral-900/50 backdrop-blur-sm">
-  <div class="aspect-video bg-black relative overflow-hidden">
-    <!-- Note: Ensure you use the generated portfolio-thumbnail.png -->
-    <img src="PROJECT15thumbnail.png" alt="Roothea Organic Wellness Salon" class="object-cover w-full h-full group-hover:scale-110 group-hover:opacity-50 transition-all duration-500" />
-    
-    <div class="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-      <a href="PROJECT15/index.html" target="_blank" class="px-6 py-2 bg-[#8a9e65] text-white font-bold rounded-full shadow-[0_0_20px_rgba(138,158,101,0.4)] transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-white hover:text-black">
-        Enter Sanctuary
-      </a>
-    </div>
-    
-    <div class="absolute top-4 right-4 px-3 py-1 bg-[#8a9e65] text-white text-[10px] font-black tracking-tighter rounded-full z-20 shadow-[0_0_15px_rgba(138,158,101,0.4)]">
-      NATURE_ROOTED
-    </div>
-  </div>
-  
-  <div class="p-6">
-    <h3 class="font-cyber text-xl font-bold text-white mb-2 group-hover:text-[#8a9e65] transition-colors">
-      ROOTHEA // Organic Wellness
-    </h3>
-    <p class="text-gray-400 text-sm mb-4">
-      A high-end, botanical-rooted sanctuary web app. Engineered with GSAP-orchestrated reveal animations, Lenis smooth scrolling, and a premium interactive ritual slider for a deep, immersive wellness experience.
-    </p>
-    <div class="flex gap-2 flex-wrap">
-      <span class="text-xs border border-white/20 px-2 py-1 rounded text-[#8a9e65]">GSAP ScrollTrigger</span>
-      <span class="text-xs border border-white/20 px-2 py-1 rounded text-[#8a9e65]">Lenis Scroll</span>
-      <span class="text-xs border border-white/20 px-2 py-1 rounded text-white">Botanical UI</span>
-      <span class="text-xs border border-white/20 px-2 py-1 rounded text-white">UX Design</span>
-    </div>
-  </div>
-</div>
-
-        <!-- PROJECT 16: PEARLCREST -->
-        <div class="group relative rounded-xl overflow-hidden border border-white/10 bg-neutral-900/50 backdrop-blur-sm">
-          <div class="aspect-video bg-black relative overflow-hidden">
-            <!-- Ensure you rename the generated thumbnail to PROJECT16thumbnail.png and put it in your images folder -->
-            <img src="PROJECT16thumbnail.png" alt="PearlCrest Dental Studio" class="object-cover w-full h-full group-hover:scale-110 group-hover:opacity-50 transition-all duration-500" />
-            
-            <div class="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <a href="PROJECT16/index.html" target="_blank" class="px-6 py-2 bg-[#0ea5a0] text-white font-bold rounded-full shadow-[0_0_20px_rgba(14,165,160,0.4)] transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-white hover:text-black">
-                Visit Studio
-              </a>
-            </div>
-            
-            <div class="absolute top-4 right-4 px-3 py-1 bg-[#0ea5a0] text-white text-[10px] font-black tracking-tighter rounded-full z-20 shadow-[0_0_15px_rgba(14,165,160,0.4)]">
-              PREMIUM_CLINIC
-            </div>
-          </div>
-          
-          <div class="p-6">
-            <h3 class="font-cyber text-xl font-bold text-white mb-2 group-hover:text-[#0ea5a0] transition-colors">
-              PEARLCREST // Dental Studio
-            </h3>
-            <p class="text-gray-400 text-sm mb-4">
-              A luxury dental clinic landing page engineered purely with Vanilla JS and CSS3. Features custom responsive grids, Swiper.js integration, and a zero-dependency architecture for maximum performance.
-            </p>
-            <div class="flex gap-2 flex-wrap">
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-[#0ea5a0]">Vanilla JS</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-[#0ea5a0]">CSS Custom Props</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-white">Swiper.js</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-white">Tailwind-Free</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- PROJECT 17: ATELIER ORIGINE -->
-        <div class="group relative rounded-xl overflow-hidden border border-white/10 bg-neutral-900/50 backdrop-blur-sm">
-          <div class="aspect-video bg-black relative overflow-hidden">
-            <img src="PROJECT17thumbnail.png" alt="Atelier Origine Ritual Dining" class="object-cover w-full h-full group-hover:scale-110 group-hover:opacity-50 transition-all duration-500" />
-            
-            <div class="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <a href="https://dhruv727876.github.io/AtelierOrigin-Restraunt/" target="_blank" class="px-6 py-2 bg-cyber-cyan text-black font-bold rounded-full shadow-[0_0_20px_rgba(0,243,255,0.4)] transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-white">
-                Launch Experience
-              </a>
-            </div>
-            
-            <div class="absolute top-4 right-4 px-3 py-1 bg-cyber-cyan text-black text-[10px] font-black tracking-tighter rounded-full z-20 shadow-[0_0_15px_rgba(0,243,255,0.4)]">
-              PREMIUM_HOSPITALITY
-            </div>
-          </div>
-          
-          <div class="p-6">
-            <h3 class="font-cyber text-xl font-bold text-white mb-2 group-hover:text-cyber-cyan transition-colors">
-              ATELIER ORIGINE // Ritual Dining
-            </h3>
-            <p class="text-gray-400 text-sm mb-4">
-              A cinematic restaurant template featuring unhurried reservation rituals, buttery 60hz scroll-linked animations, and a bespoke design language engineered for luxury dining.
-            </p>
-            <div class="flex gap-2 flex-wrap">
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-cyber-cyan">Next.js 15</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-cyber-purple">Framer Motion</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-white">GitHub Pages</span>
-              <span class="text-xs border border-white/20 px-2 py-1 rounded text-white">TypeScript</span>
-            </div>
-          </div>
-        </div>
-
-
-      </div>
-    </section>
-    <!-- ================= AUTHORITY SECTION ================= -->
-  <section id="authority" class="relative z-10 py-28 px-4 max-w-7xl mx-auto">
-    <div class="text-center mb-20">
-      <h2 class="font-cyber text-3xl md:text-4xl text-white mb-4">
-        WHY_WORK_WITH_ME
-      </h2>
-      <div class="h-1 w-24 bg-cyber-cyan mx-auto shadow-[0_0_15px_#00f3ff]"></div>
-      <p class="text-gray-400 mt-6 max-w-2xl mx-auto">
-        I engineer high-performance digital systems designed to convert and scale.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="p-8 rounded-2xl border border-white/10 bg-neutral-900/50 backdrop-blur-md">
-        <div class="text-cyber-cyan text-5xl mb-6">⚡</div>
-        <h3 class="font-cyber text-lg text-white mb-4">PERFORMANCE_FIRST</h3>
-        <p class="text-gray-400 text-sm">
-          Optimized structure and SEO-aware development.
+    <div class="specialties-container">
+      <!-- Card 1 -->
+      <div class="kinetic-card" data-color="cyan" style="z-index: 3;">
+        <span class="card-num">01_SYS</span>
+        <span class="card-icon">⚡</span>
+        <h3 class="font-outfit text-2xl font-bold mb-4">Web Architecture</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Engineering high-performance React & Next.js ecosystems with precision-grade animations and silicon-smooth
+          interactions.
         </p>
       </div>
 
-      <div class="p-8 rounded-2xl border border-white/10 bg-neutral-900/50 backdrop-blur-md">
-        <div class="text-cyber-purple text-5xl mb-6">🛡️</div>
-        <h3 class="font-cyber text-lg text-white mb-4">SECURE_BY_DESIGN</h3>
-        <p class="text-gray-400 text-sm">
-          Clean architecture and secure coding practices.
+      <!-- Card 2 -->
+      <div class="kinetic-card" data-color="purple" style="z-index: 2;">
+        <span class="card-num">02_SEC</span>
+        <span class="card-icon">🛡️</span>
+        <h3 class="font-outfit text-2xl font-bold mb-4">Cybersecurity</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Implementing military-grade security protocols, vulnerability assessments, and robust digital fortress
+          architectures.
         </p>
       </div>
 
-      <div class="p-8 rounded-2xl border border-white/10 bg-neutral-900/50 backdrop-blur-md">
-        <div class="text-white text-5xl mb-6">🚀</div>
-        <h3 class="font-cyber text-lg text-white mb-4">PREMIUM_EXPERIENCE</h3>
-        <p class="text-gray-400 text-sm">
-          Micro-interactions and fluid responsive systems.
+      <!-- Card 3 -->
+      <div class="kinetic-card" data-color="white" style="z-index: 1;">
+        <span class="card-num">03_UXI</span>
+        <span class="card-icon">🚀</span>
+        <h3 class="font-outfit text-2xl font-bold mb-4">System Design</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Translating complex user requirements into intuitive, glassmorphic interfaces designed for high engagement and
+          scalability.
         </p>
       </div>
     </div>
   </section>
 
-    <section id="contact" class="relative z-10 py-24 px-4 text-center">
-      <h2 class="font-cyber text-4xl md:text-5xl mb-6 text-white">
-        READY TO <span class="text-cyber-cyan">COLLABORATE?</span>
+  <!-- GEOMETRIC SECTION LOOM (Physical System Connectivity) -->
+  <div class="relative w-full h-32 pointer-events-none z-20">
+    <div class="section-connector animate-pulse">
+      <div class="connector-node"></div>
+    </div>
+  </div>
+
+  <section id="latest-work" class="relative z-10 pt-12 pb-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 mb-16">
+      <h2 class="font-outfit text-4xl md:text-6xl font-black text-white tracking-tighter">
+        Recent_Releases<span class="text-cyber-cyan">.</span>
       </h2>
-      <p class="text-gray-400 max-w-md mx-auto mb-8">
-        Currently available for freelance web development and cybersecurity audits.
-      </p>
-      <a href="mailto:cinefix1.12.19@gmail.com" class="inline-block px-10 py-4 bg-transparent border-2 border-cyber-cyan text-cyber-cyan font-cyber font-bold tracking-widest hover:bg-cyber-cyan hover:text-black hover:shadow-[0_0_40px_rgba(0,243,255,0.4)] transition-all duration-300">
-        INITIATE_CONTACT()
+      <p class="text-gray-500 mt-4 font-mono text-xs tracking-widest uppercase">// High_Priority_Drops</p>
+    </div>
+
+    <div class="latest-scroll-container">
+      <!-- Rendered by JS -->
+    </div>
+  </section>
+
+  <section id="projects" class="relative z-10 py-32 px-4 max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-20 section-header">
+      <div>
+        <h2 class="font-outfit text-4xl md:text-6xl font-black text-white mb-4 tracking-tighter">
+          Featured_Work
+        </h2>
+        <div class="h-2 w-24 bg-gradient-to-r from-cyber-cyan to-transparent"></div>
+      </div>
+      <a href="https://github.com/Dhruv727876" target="_blank"
+        class="magnetic text-cyber-cyan hover:text-white transition-colors mt-8 font-cyber text-[10px] tracking-[4px] border border-cyber-cyan/30 px-6 py-2 rounded-full">
+        // ACCESS_HUB
       </a>
-    </section>
+    </div>
 
-    <footer class="relative z-10 border-t border-white/10 bg-black/40 backdrop-blur-md pt-16 pb-8 px-4">
-      <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+    <!-- NEW: PROJECT FILTERS -->
+    <div class="flex flex-wrap gap-4 mb-16 filter-container">
+      <button class="filter-btn active" data-filter="all">ALL</button>
+      <button class="filter-btn" data-filter="functional">WEB_APPS</button>
+      <button class="filter-btn" data-filter="landing">LANDING_PAGES</button>
+      <button class="filter-btn" data-filter="cyber">CYBER_SEC</button>
+      <button class="filter-btn" data-filter="3d">3D_MODELS</button>
+    </div>
 
-          <div class="col-span-1 md:col-span-1">
-            <div class="font-cyber font-bold text-cyber-cyan tracking-wider text-2xl mb-4">
-              HRILAX<span class="text-white">.</span>
-            </div>
-            <p class="text-gray-500 text-sm leading-relaxed mb-6">
-              Architecting digital fortresses and interactive silicon-grade experiences. Engineered by <span class="text-white">Dhruv</span>.
-            </p>
-            <div class="flex items-center gap-4">
-              <div class="h-2 w-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_#22c55e]"></div>
-              <span class="font-cyber text-[10px] text-gray-400 tracking-[3px]">SYSTEMS_OPERATIONAL</span>
-            </div>
+    <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <!-- Rendered by JS -->
+    </div>
+  </section>
+
+  <section id="tech-stack" class="relative z-10 py-32 px-4 bg-transparent min-h-screen flex flex-col justify-center">
+    <div class="section-header text-center mb-16 relative z-20">
+      <h2 class="font-outfit text-4xl md:text-6xl font-black text-white mb-4 tracking-tighter">
+        My_TechStack
+      </h2>
+      <div class="h-1 w-24 bg-cyber-purple mx-auto"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto w-full grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 relative z-10 px-4">
+
+      <!-- LARGE MAIN CARD: REACT -->
+      <div class="bento-card col-span-2 row-span-2 group pt-12 pb-12 overflow-hidden">
+        <div class="bento-glow bg-cyan-500/20"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+            class="w-32 h-32 mb-6 group-hover:rotate-[360deg] transition-transform duration-1000 ease-in-out"
+            alt="React" loading="lazy">
+          <h3 class="text-3xl font-black text-white tracking-widest">REACT_JS</h3>
+          <p class="text-cyan-400 font-mono text-sm mt-3 px-4 py-1 border border-cyan-400/30 rounded-full">
+            CORE_FRAMEWORK</p>
+        </div>
+      </div>
+
+      <!-- STATS CARD -->
+      <div class="bento-card col-span-2 group perspective-1000">
+        <div class="bento-glow bg-purple-600/20"></div>
+        <div class="relative z-10 grid grid-cols-2 h-full items-center px-10">
+          <div class="text-left">
+            <span class="block text-5xl md:text-7xl font-black text-white leading-none tracking-tighter">15+</span>
+            <span class="text-[10px] font-mono text-cyan-400 mt-2 block uppercase tracking-widest">PROJECTS_BUILT</span>
           </div>
-
-          <div>
-            <h4 class="font-cyber text-xs text-white tracking-widest mb-6 opacity-50">// DIRECTORY</h4>
-            <ul class="space-y-4 text-sm text-gray-400">
-              <li><a href="#home" class="hover:text-cyber-cyan transition-colors">Return_Home</a></li>
-              <li><a href="#services" class="hover:text-cyber-cyan transition-colors">Specialties</a></li>
-              <li><a href="#projects" class="hover:text-cyber-cyan transition-colors">Featured_Work</a></li>
-            </ul>
+          <div class="text-left border-l border-white/10 pl-10">
+            <span class="block text-5xl md:text-7xl font-black text-white leading-none tracking-tighter">02+</span>
+            <span
+              class="text-[10px] font-mono text-purple-400 mt-2 block uppercase tracking-widest">EXPERIENCE_YRS</span>
           </div>
+        </div>
+      </div>
 
-          <div>
-            <h4 class="font-cyber text-xs text-white tracking-widest mb-6 opacity-50">// CONNECT</h4>
-            <div class="flex gap-4" id="footer-socials">
-              <a href="#" class="social-icon-wrapper" aria-label="X">
-                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
-              </a>
-              <a href="#" class="social-icon-wrapper" aria-label="LinkedIn">
-                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
-              </a>
-              <a href="#" class="social-icon-wrapper" aria-label="GitHub">
-                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-              </a>
-            </div>
+      <!-- NODE.JS -->
+      <div class="bento-card group py-10">
+        <div class="bento-glow bg-green-500/10"></div>
+        <div class="relative z-10 flex flex-col items-center">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+            class="w-16 h-16 mb-4 filter drop-shadow-[0_0_10px_rgba(34,197,94,0.3)] group-hover:scale-110 transition-all duration-300"
+            alt="Node.js" loading="lazy">
+          <span class="font-bold text-white tracking-tighter text-sm">NODE_RUNTIME</span>
+        </div>
+      </div>
+
+      <!-- NEXT.JS -->
+      <div class="bento-card group py-10">
+        <div class="bento-glow bg-white/10"></div>
+        <div class="relative z-10 flex flex-col items-center">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+            class="w-16 h-16 mb-4 filter invert group-hover:scale-110 transition-all duration-300" alt="Next.js"
+            loading="lazy">
+          <span class="font-bold text-white tracking-tighter text-sm">NEXT_SSR</span>
+        </div>
+      </div>
+
+      <!-- TILE: POSTGRESQL -->
+      <div class="bento-card group py-10">
+        <div class="bento-glow bg-indigo-500/10"></div>
+        <div class="relative z-10 flex flex-col items-center">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+            class="w-16 h-16 mb-4 group-hover:scale-110 transition-all duration-300" alt="PostgreSQL" loading="lazy">
+          <span class="font-bold text-white tracking-tighter text-sm">POSTGRE_SQL</span>
+        </div>
+      </div>
+
+      <!-- TILE: DOCKER -->
+      <div class="bento-card group py-10">
+        <div class="bento-glow bg-blue-400/10"></div>
+        <div class="relative z-10 flex flex-col items-center">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+            class="w-16 h-16 mb-4 group-hover:scale-110 transition-all duration-300" alt="Docker" loading="lazy">
+          <span class="font-bold text-white tracking-tighter text-sm">DOCKER_OS</span>
+        </div>
+      </div>
+
+      <!-- TILE: EXPRESS -->
+      <div class="bento-card group py-10">
+        <div class="bento-glow bg-white/5"></div>
+        <div class="relative z-10 flex flex-col items-center">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+            class="w-16 h-16 mb-4 filter invert group-hover:scale-110 transition-all duration-300" alt="Express"
+            loading="lazy">
+          <span class="font-bold text-white tracking-tighter text-sm">EXPRESS_JS</span>
+        </div>
+      </div>
+
+      <!-- EXTRA STAT TILE -->
+      <div class="bento-card group py-10 overflow-hidden">
+        <div class="bento-glow bg-cyan-400/20"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center">
+          <span
+            class="text-5xl font-black text-white group-hover:text-cyan-400 transition-colors duration-300">99%</span>
+          <span class="text-[9px] font-mono text-gray-500 uppercase tracking-[4px] mt-1">Uptime_Ratio</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- New Fresh Background Text -->
+    <div
+      class="absolute inset-x-0 top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none opacity-[0.02] select-none z-0">
+      <h2 class="font-outfit text-[22vw] font-black text-white tracking-widest uppercase outline-text">
+        CORE
+      </h2>
+    </div>
+  </section>
+  <!-- ================= AUTHORITY SECTION ================= -->
+  <section id="authority" class="relative z-10 py-32 px-4 max-w-7xl mx-auto">
+    <div class="section-header text-center mb-24">
+      <h2 class="font-outfit text-4xl md:text-5xl font-black text-white mb-4 tracking-tighter">
+        Why_Work_With_Me
+      </h2>
+      <div class="h-1 w-24 bg-cyber-cyan mx-auto"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div class="glass p-10 rounded-[2rem] border-t border-cyber-cyan/30">
+        <div class="text-cyber-cyan text-5xl mb-8">⚡</div>
+        <h3 class="font-outfit text-xl font-bold text-white mb-4 uppercase tracking-widest">Performance_First</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Optimized silicon-grade structures designed for 60fps interactions and ultra-fast load times.
+        </p>
+      </div>
+
+      <div class="glass p-10 rounded-[2rem] border-t border-cyber-purple/30">
+        <div class="text-cyber-purple text-5xl mb-8">🛡️</div>
+        <h3 class="font-outfit text-xl font-bold text-white mb-4 uppercase tracking-widest">Secure_By_Design</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Architecting digital fortresses with internal security protocols and clean-code principles.
+        </p>
+      </div>
+
+      <div class="glass p-10 rounded-[2rem] border-t border-white/30">
+        <div class="text-white text-5xl mb-8">🚀</div>
+        <h3 class="font-outfit text-xl font-bold text-white mb-4 uppercase tracking-widest">Premium_UX</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Crafting deep-work environments and high-fidelity interfaces that convert and inspire.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="relative z-10 py-32 px-4 text-center overflow-hidden">
+    <h2 class="font-outfit text-5xl md:text-8xl font-black mb-12 text-white tracking-tighter">
+      READY TO <span class="text-gradient">EVOLVE?</span>
+    </h2>
+    <p class="text-gray-500 max-w-xl mx-auto mb-16 text-lg font-light tracking-wide">
+      Currently accepting select freelance engagements for <span class="text-white">Silicon-grade development</span> and
+      <span class="text-white">Security Audits</span>.
+    </p>
+    <a href="mailto:cinefix1.12.19@gmail.com"
+      class="magnetic inline-block px-16 py-6 bg-cyber-cyan text-black font-cyber font-black tracking-[4px] text-[10px] rounded-full hover:bg-white hover:shadow-[0_0_60px_rgba(0,243,255,0.4)] transition-all duration-500">
+      INITIATE_CONTACT()
+    </a>
+  </section>
+
+  <footer class="relative z-10 pt-32 pb-16 px-4 bg-black">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-20 mb-24">
+
+        <div class="col-span-1 md:col-span-1">
+          <div class="font-cyber font-bold text-cyber-cyan tracking-[5px] text-2xl mb-8">
+            DHRUV<span class="text-white">.</span>
           </div>
+          <p class="text-gray-500 text-xs leading-[2] mb-10 uppercase tracking-widest font-bold">
+            Engineering high-performance <span class="text-white">Digital Structures</span> & architectural security.
+          </p>
+          <div class="flex items-center gap-4 group">
+            <div class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_15px_#22c55e]"></div>
+            <span class="font-cyber text-[8px] text-gray-500 tracking-[3px] uppercase">Integrity: _VERIFIED</span>
+          </div>
+        </div>
 
-          <div>
-            <h4 class="font-cyber text-xs text-white tracking-widest mb-6 opacity-50">// PROJECT_HUB</h4>
-            <a href="#projects" class="group flex items-center justify-between border border-white/10 p-4 rounded-xl hover:border-cyber-cyan transition-all">
-              <span class="text-xs font-cyber text-gray-400 group-hover:text-white">View_All_Work</span>
-              <span class="text-cyber-cyan group-hover:translate-x-1 transition-transform">➜</span>
+        <div>
+          <h4 class="font-cyber text-[10px] text-white tracking-[5px] mb-10 opacity-30 uppercase">// SYSTEM_NAV</h4>
+          <ul class="space-y-6 text-[10px] uppercase tracking-[3px] font-bold">
+            <li><a href="#home" class="text-gray-500 hover:text-cyber-cyan transition-colors">Core_Index</a></li>
+            <li><a href="#services" class="text-gray-500 hover:text-cyber-cyan transition-colors">Specialties</a></li>
+            <li><a href="#projects" class="text-gray-500 hover:text-cyber-cyan transition-colors">Work_Archive</a></li>
+            <li><a href="#contact" class="text-gray-500 hover:text-cyber-cyan transition-colors">Initialize_Comm</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-cyber text-[10px] text-white tracking-[5px] mb-10 opacity-30 uppercase">// UPLINK_CHANNELS
+          </h4>
+          <div class="flex flex-wrap gap-4">
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/gourav-karmakar-6b6a96279?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+              target="_blank" rel="noopener noreferrer"
+              class="magnetic w-12 h-12 rounded-full border border-white/5 bg-white/[0.02] flex items-center justify-center hover:bg-cyber-purple hover:text-black transition-all text-gray-400">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z" />
+              </svg>
+            </a>
+            <!-- GitHub -->
+            <a href="https://github.com/Dhruv727876" target="_blank" rel="noopener noreferrer"
+              class="magnetic w-12 h-12 rounded-full border border-white/5 bg-white/[0.02] flex items-center justify-center hover:bg-white hover:text-black transition-all text-gray-400">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.412-4.041-1.412-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/dhruv07524?igsh=MWg5Nmp6emEwdTBvdQ==" target="_blank" rel="noopener noreferrer"
+              class="magnetic w-12 h-12 rounded-full border border-white/5 bg-white/[0.02] flex items-center justify-center hover:bg-pink-500 hover:text-white transition-all text-gray-400">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.947.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/share/1GKd3Q6Kpy/" target="_blank" rel="noopener noreferrer"
+              class="magnetic w-12 h-12 rounded-full border border-white/5 bg-white/[0.02] flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all text-gray-400">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
+              </svg>
+            </a>
+            <!-- X -->
+            <a href="https://x.com/Dhruv727876" target="_blank" rel="noopener noreferrer"
+              class="magnetic w-12 h-12 rounded-full border border-white/5 bg-white/[0.02] flex items-center justify-center hover:bg-cyber-cyan hover:text-black transition-all text-gray-400">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+              </svg>
             </a>
           </div>
         </div>
 
-        <div class="flex flex-col md:flex-row justify-between items-center border-t border-white/5 pt-8 text-[10px] font-cyber tracking-[2px] text-gray-600">
-          <p>&copy; 2026 DHRUV. ALL RIGHTS RESERVED.</p>
-          <p class="mt-4 md:mt-0">DESIGNED_BY_HRILAX</p>
+        <div>
+          <h4 class="font-cyber text-[10px] text-white tracking-[5px] mb-10 opacity-30 uppercase">// SYSTEM_READOUTS
+          </h4>
+          <div class="flex flex-col gap-8 opacity-60">
+            <div class="hud-stat">
+              <span class="text-[8px] font-cyber tracking-widest text-white/40 uppercase">CPU_UTILIZATION: <span
+                  class="text-cyber-cyan" id="cpu-load">12.4%</span></span>
+              <div class="hud-bar">
+                <div class="hud-bar-fill" id="cpu-bar"></div>
+              </div>
+            </div>
+            <div class="hud-stat">
+              <span class="text-[8px] font-cyber tracking-widest text-white/40 uppercase">NET_THROUGHPUT: <span
+                  class="text-cyber-purple">ASYNC_LINK_OK</span></span>
+              <div class="hud-bar">
+                <div class="hud-bar-fill w-[60%] bg-cyber-purple shadow-[0_0_10px_rgba(188,19,254,0.4)]"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
-  </body>
+
+      <div
+        class="flex flex-col md:flex-row justify-between items-center border-t border-white/10 pt-16 text-[10px] font-cyber tracking-[3px] text-white/60 uppercase gap-8">
+        <p>&copy; 2026 DHRUV. DESIGNED AND DEVELOPED BY DHRUV.</p>
+        <div class="flex gap-12 mt-6 md:mt-0 items-center">
+          <span class="text-cyber-cyan transition-colors cursor-pointer tracking-[5px] font-black">POWERED BY
+            HRILAX</span>
+          <span class="text-white/20 tracking-[2px] hex-id">_SYS.8.8.4</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+  <script src="projects_data.js"></script>
+  <script src="script.js"></script>
+</body>
+
 </html>
