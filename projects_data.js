@@ -1,6 +1,17 @@
 // ADD NEW PROJECTS HERE (Top releases shown in Recent Releases)
 const PROJECTS_DATA = [
   {
+    title: "OBSIDIAN NOIR",
+    description: "A premium cinematic fitness platform with a \"Silent Authority\" design system and HUD-driven interactions.",
+    category: "functional",
+    image: "PROJECT19thumbnail.webp",
+    link: "https://dhruv727876.github.io/ObsidianGym/",
+    tags: ["NEXT.JS 15", "CINEMATIC UI", "Silent Authority"],
+    special: "HUD-driven \"Silent Authority\" patterns",
+    buttonText: "Launch Experience",
+    buttonColor: "!bg-white !text-black"
+  },
+  {
     title: "AURA",
     description: "An elite Next.js SaaS architecture featuring fluid structural animations and deep structural design.",
     category: "functional",
