@@ -1,6 +1,17 @@
 // ADD NEW PROJECTS HERE (Top releases shown in Recent Releases)
 const PROJECTS_DATA = [
   {
+    title: "FOLIO OS DESKTOP",
+    description: "An elite celestial desktop operating system experience built for high-density technical portfolios and immersive navigation.",
+    category: "functional",
+    image: "PROJECT20thumbnail.webp",
+    link: "https://dhruv727876.github.io/folio-os-Portfolio/",
+    tags: ["GSAP 3", "THREE.JS", "GLASSMORPHISM V4"],
+    special: "Celestial 'Aura' Particle Engine",
+    buttonText: "Enter Environment",
+    buttonColor: "!bg-cyber-cyan !text-black"
+  },
+  {
     title: "OBSIDIAN NOIR",
     description: "A premium cinematic fitness platform with a \"Silent Authority\" design system and HUD-driven interactions.",
     category: "functional",
