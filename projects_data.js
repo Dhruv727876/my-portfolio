@@ -1,6 +1,17 @@
 // ADD NEW PROJECTS HERE (Top releases shown in Recent Releases)
 const PROJECTS_DATA = [
   {
+    title: "CORESHIFT",
+    description: "The modern, all-in-one HR platform designed for scaling teams. Managed workforce with intelligence and speed.",
+    category: "functional",
+    image: "PROJECT21thumbnail.webp",
+    link: "https://dhruv727876.github.io/coreshift/",
+    tags: ["NEXT.JS 16", "BUN", "HRMS"],
+    special: "Intelligent workforce management",
+    buttonText: "Launch Platform",
+    buttonColor: "!bg-[#EF4444] !text-white"
+  },
+  {
     title: "FOLIO OS DESKTOP",
     description: "An elite celestial desktop operating system experience built for high-density technical portfolios and immersive navigation.",
     category: "functional",
