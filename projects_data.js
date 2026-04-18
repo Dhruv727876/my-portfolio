@@ -1,6 +1,17 @@
 // ADD NEW PROJECTS HERE (Top releases shown in Recent Releases)
 const PROJECTS_DATA = [
   {
+    title: "VEXO",
+    description: "A high-performance 'Kinetic Editorial' activewear template merging brutalist aesthetics with high-velocity mechanics.",
+    category: "functional",
+    image: "PROJECT22thumbnail.webp",
+    link: "https://dhruv727876.github.io/pixel-perfect-replication/",
+    tags: ["MOTION V12", "REACT 18", "BRUTALIST UI"],
+    special: "Kinetic Editorial design system",
+    buttonText: "Launch Atmosphere",
+    buttonColor: "!bg-[#FF0F67] !text-white"
+  },
+  {
     title: "CORESHIFT",
     description: "The modern, all-in-one HR platform designed for scaling teams. Managed workforce with intelligence and speed.",
     category: "functional",
