@@ -1,6 +1,28 @@
 // ADD NEW PROJECTS HERE (Top releases shown in Recent Releases)
 const PROJECTS_DATA = [
   {
+    title: "SEVASYNC",
+    description: "An AI-powered disaster response platform that converts community data into actionable intelligence with precision matching.",
+    category: "functional",
+    image: "SEVASYNC_thumbnail.webp",
+    link: "https://dhruv727876.github.io/SevaSync/",
+    tags: ["REACT 19", "GROQ SDK", "FIREBASE"],
+    special: "Llama AI Scene Analysis",
+    buttonText: "Launch Intelligence",
+    buttonColor: "!bg-[#00D1FF] !text-black"
+  },
+  {
+    title: "VOTESAATHI",
+    description: "An intelligent election assistant providing real-time candidate insights and voter guidance through AI orchestration.",
+    category: "functional",
+    image: "VOTESAATHI_thumbnail.webp",
+    link: "https://dhruv727876.github.io/VoteSaathi/",
+    tags: ["GEMINI 2.0 FLASH", "FIREBASE", "NVIDIA NIM"],
+    special: "Google Search Grounding engine",
+    buttonText: "Enter Assistant",
+    buttonColor: "!bg-[#FF4D00] !text-white"
+  },
+  {
     title: "VEXO",
     description: "A high-performance 'Kinetic Editorial' activewear template merging brutalist aesthetics with high-velocity mechanics.",
     category: "functional",
