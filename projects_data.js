@@ -4,7 +4,7 @@ const PROJECTS_DATA = [
     title: "APEX",
     description: "An elite Swiss Brutalist athletic training sanctuary dashboard built for high-fidelity physiological calibration and data-tracked metrics.",
     category: "functional",
-    image: "APEX_thumbnail.webp",
+    image: "PROJECT23thumbnail.webp",
     link: "https://dhruv727876.github.io/Apex-HighFidelityExperience/",
     tags: ["REACT 19", "LENIS SCROLL", "GSAP 3"],
     special: "Brutalist Calibration Systems",
