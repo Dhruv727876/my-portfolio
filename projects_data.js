@@ -1,6 +1,17 @@
 // ADD NEW PROJECTS HERE (Top releases shown in Recent Releases)
 const PROJECTS_DATA = [
   {
+    title: "APEX",
+    description: "An elite Swiss Brutalist athletic training sanctuary dashboard built for high-fidelity physiological calibration and data-tracked metrics.",
+    category: "functional",
+    image: "APEX_thumbnail.webp",
+    link: "https://dhruv727876.github.io/Apex-HighFidelityExperience/",
+    tags: ["REACT 19", "LENIS SCROLL", "GSAP 3"],
+    special: "Brutalist Calibration Systems",
+    buttonText: "Launch Sanctuary",
+    buttonColor: "!bg-[#0038FF] !text-white"
+  },
+  {
     title: "SEVASYNC",
     description: "An AI-powered disaster response platform that converts community data into actionable intelligence with precision matching.",
     category: "functional",
